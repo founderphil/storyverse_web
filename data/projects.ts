@@ -6,6 +6,9 @@ export type Project = {
   subtitle?: string;
   link?: string;
   img: string;
+  digitalImg?: string;
+  livePerformanceImg?: string;
+  filmTvImg?: string;
   tags: string[];
   overview: string;
   role: string;
@@ -17,6 +20,7 @@ export type Project = {
   processVisual?: string;
   overviewVisual?: string;
   featuredVideo?: string;
+  threadBackground?: string;
 };
 
 export const projects: Record<string, Project> = {
@@ -27,6 +31,9 @@ export const projects: Record<string, Project> = {
     subtitle: 'Live + AI Storyworld',
     link: 'https://fairylandshow.com/',
     img: '/images/fairyland.png',
+    digitalImg: '/images/FAIRYLAND_outcomes.png',
+    livePerformanceImg: '/images/fairyland_live.jpg',
+    filmTvImg: '/images/fairyland.gif',
     tags: ['Transmedia', 'AI', 'Experience Design', 'Storyworld'],
     overview: `A living storyworld that connects audiences across live performance, web, film, and AI‑driven character encounters so engagement continues before, during, and after the show.`,
     role: `Head of Product UX, Designer, Creative Technologist & Full Stack Engineer — owned experience strategy across mediums, ticketing/onboarding UX, and cohesion between live and digital touchpoints.`,
@@ -46,13 +53,18 @@ export const projects: Record<string, Project> = {
     featured: true,
     outcomesVisual: '/images/FAIRYLAND_outcomes.png',
     processVisual: '/images/FAIRYLAND_process.png',
-    overviewVisual: '/images/FAIRYLAND_overview.png'
+    overviewVisual: '/images/FAIRYLAND_overview.png',
+    threadBackground: '/images/doors-poster.png'
   },
 
   emily_was_here: {
     title: 'Emily Was Here — Brooklyn Bridge Experience',
     subtitle: 'Geospatial Mixed Reality',
+    link: 'https://brooklynbridgeexperience.com/',
     img: '/images/emily.png',
+    digitalImg: '/images/chalknotes.png',
+    livePerformanceImg: '/images/emily.png',
+    filmTvImg: '/videos/bridge_movie.gif',
     tags: ['Audio', 'AR', 'XR', 'Place‑based', 'NYC'],
     overview: `A poetic, GPS‑triggered audio walk across the Brooklyn Bridge. Voiceover, poetry, and ambient sound transform the crossing into an intimate narrative.`,
     role: `XR Experience Designer & Technical Director — route design, GPS trigger pacing, and sound layering using the ChalkNotes stack.`,
@@ -68,9 +80,7 @@ export const projects: Record<string, Project> = {
       'Bridge video with participants in flow.',
       'Original scripts adapted for the Brooklyn Bridge historical landmark.'
     ],
-    outcomesVisual: '/images/bridge_outcomes.png',
-    processVisual: '/images/bridge_process.png',
-    overviewVisual: '/images/bridge_overview.png',
+    threadBackground: '/images/bridge_overview.png',
     featured: true
   },
 
@@ -79,6 +89,9 @@ export const projects: Record<string, Project> = {
     subtitle: 'AI Character UX/UI',
     link: 'https://the-maia-experience.framer.ai/',
     img: '/images/maia.png',
+    digitalImg: '/images/maia.png',
+    livePerformanceImg: '/images/maia.png',
+    filmTvImg: '/images/maia.png',
     tags: ['AI', 'Conversational', 'Installation', 'Live', 'Social Play'],
     overview: `An intimate, 10‑minute encounter with MAIA — a real‑time AI character that sees, listens, and converses with visitors inside Prof. Dupin’s study as a pre‑show to a larger story world.`,
     role: `MS in Emerging Tech, AI & Design at NYU. Solo experience and systems lead across narrative interaction, dialogue pacing, interaction rules, and the full AI pipeline (STT/CV/LLM/TTS) integrated with lighting and set cues.`,
@@ -98,7 +111,7 @@ export const projects: Record<string, Project> = {
     featured: true,
     outcomesVisual: '/images/MAIA_outcomes.png',
     processVisual: '/images/MAIA_process.png',
-    overviewVisual: '/images/MAIA_overview.png'
+    overviewVisual: '/images/MAIA_overview.png',
   },
 
   chalknotes: {
@@ -106,6 +119,9 @@ export const projects: Record<string, Project> = {
     subtitle: 'XR Storytelling Platform',
     link: 'https://chalknotes.com/',
     img: '/images/chalknotes.png',
+    digitalImg: '/images/chalknotes.png',
+    livePerformanceImg: '/images/chalknotes.png',
+    filmTvImg: '/images/chalknotes.png',
     tags: ['XR', 'Audio', 'AR', 'No-Code', 'NYC', 'Social Play'],
     overview: `A mixed‑reality audio‑AR platform that lets creators drop stories onto real‑world maps and audiences discover them in situ. Piloted as a multi‑stop narrative trail in Shubert Alley in NYC.`,
     role: `Lead Product Designer & UX Strategist — owned end‑to‑end design across no‑code authoring and mobile discovery. Led research, prototyping, and usability testing with creators and audiences in uncontrolled real‑world environments.`,
@@ -131,6 +147,9 @@ export const projects: Record<string, Project> = {
   juliet_wherefore: {
     title: 'Wherefore Art Thou, Juliet?',
     img: '/images/juliet.png',
+    digitalImg: '/images/juliet.png',
+    livePerformanceImg: '/images/juliet.png',
+    filmTvImg: '/images/juliet.png',
     tags: ['XR', 'Location‑based', 'Audio', 'Theatre District', 'NYC'],
     overview: `A choose‑your‑own‑adventure mixed‑reality journey across NYC’s Theater District, guided by interviews with Broadway performers.`,
     role: `Experience Designer — route/stop design, narrative framing, and mobile listening UX.`,

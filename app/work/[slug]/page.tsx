@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import TagBar from '@/components/TagBar';
 import { projects as PROJECTS } from '@/data/projects';
 import { useRouter } from 'next/navigation';
 
@@ -60,6 +59,60 @@ export default function WorkProjectPage({ params }: { params: { slug: string } }
             View Project Site
           </a>
         </div>
+      )}
+
+      {/* Media images: digital / live performance / film & TV */}
+      {(project.digitalImg || project.livePerformanceImg || project.filmTvImg) && (
+        <section className="mt-4 grid gap-4 sm:grid-cols-3">
+          {project.digitalImg && (
+            <button
+              type="button"
+              className="group flex flex-col gap-2 text-left"
+              onClick={() => setModalImg(project.digitalImg!)}
+            >
+              <div className="overflow-hidden rounded-xl bg-neutral-900 aspect-video">
+                <img
+                  src={project.digitalImg}
+                  alt={`${project.title} digital media`}
+                  className="w-full h-full object-cover group-hover:scale-[1.02] transition"
+                />
+              </div>
+              <span className="text-xs uppercase tracking-wide text-neutral-400">Digital</span>
+            </button>
+          )}
+          {project.livePerformanceImg && (
+            <button
+              type="button"
+              className="group flex flex-col gap-2 text-left"
+              onClick={() => setModalImg(project.livePerformanceImg!)}
+            >
+              <div className="overflow-hidden rounded-xl bg-neutral-900 aspect-video">
+                <img
+                  src={project.livePerformanceImg}
+                  alt={`${project.title} live performance`}
+                  className="w-full h-full object-cover group-hover:scale-[1.02] transition"
+                />
+              </div>
+              <span className="text-xs uppercase tracking-wide text-neutral-400">Live Performance</span>
+            </button>
+          )}
+          {project.filmTvImg && (
+            <button
+              type="button"
+              className="group flex flex-col gap-2 text-left"
+              onClick={() => setModalImg(project.filmTvImg!)}
+            >
+              <div className="overflow-hidden rounded-xl bg-neutral-900 aspect-video">
+                <img
+                  src={project.filmTvImg}
+                  alt={`${project.title} film & TV`}
+                  className="w-full h-full object-cover group-hover:scale-[1.02] transition"
+                />
+              </div>
+              <span className="text-xs uppercase tracking-wide text-neutral-400">Film / TV</span>
+            </button>
+          )}
+        </section>
       )}
       <section className="mt-6">
         <h2 className="font-semibold text-lg mb-1">Overview</h2>
