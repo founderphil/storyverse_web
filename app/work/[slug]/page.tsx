@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { projects as PROJECTS } from '@/data/projects';
 import { useRouter } from 'next/navigation';
+import TagBar from "@/components/TagBar";
 
 export default function WorkProjectPage({ params }: { params: { slug: string } }) {
   const router = useRouter();
