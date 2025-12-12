@@ -1,6 +1,4 @@
 import React from "react";
-import SocialPlayground from "./SocialPlayground";
-import Legend from "./Legend";
 
 export default function Hero() {
   return (
