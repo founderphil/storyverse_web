@@ -2,28 +2,21 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { projects } from "@/data/projects";
+import { projects, type Project } from "@/data/projects";
 
-function getFirstProject() {
-  const entries = Object.entries(projects);
-  if (!entries.length) return undefined;
-  const [slug, project] = entries[0];
-  return { slug, project };
-}
+type Direction = "ltr" | "rtl";
 
-export default function ThreadParallax() {
-  const containerRef = useRef<HTMLDivElement | null>(null);
+const PATH_LENGTH = 1000; // used for stroke-dasharray / stroke-dashoffset
+
+function useScrollProgress<T extends HTMLElement>() {
+  const ref = useRef<T | null>(null);
   const [progress, setProgress] = useState(0);
-  const data = getFirstProject();
 
   useEffect(() => {
-    const el = containerRef.current;
+    const el = ref.current;
     if (!el) return;
 
-    let ticking = false;
-
     const update = () => {
-      ticking = false;
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight || 1;
       const total = rect.height + vh;
@@ -32,66 +25,104 @@ export default function ThreadParallax() {
       setProgress(p);
     };
 
-    const onScroll = () => {
-      if (!ticking) {
-        ticking = true;
-        window.requestAnimationFrame(update);
-      }
-    };
-
     update();
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", update);
     window.addEventListener("resize", update);
 
     return () => {
-      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
   }, []);
 
-  if (!data) return null;
+  return { ref, progress };
+}
 
-  const { project } = data;
+function ThreadBand({
+  project,
+  direction,
+}: {
+  project: Project;
+  direction: Direction;
+}) {
+  const { ref, progress } = useScrollProgress<HTMLElement>();
 
-  // Map scroll progress so the thread moves left → right → left
-  const computeX = (p: number) => {
-    if (p <= 0.5) {
-      const t = p / 0.5; // 0 → 1
-      return -40 + 80 * t; // -40% → 40%
-    }
-    const t = (p - 0.5) / 0.5; // 0 → 1
-    return 40 - 80 * t; // 40% → -40%
-  };
-
-  const x = computeX(progress);
+  // Reveal the thread along its length as you scroll.
+  const dashOffset = PATH_LENGTH * (1 - progress);
+  const isRtl = direction === "rtl";
 
   return (
-    <section className="thread-section" ref={containerRef}>
+    <section className="thread-section" ref={ref}>
       <div className="thread-sticky">
-        <div
-          className="thread-line-wrapper"
-          style={{ transform: `translateX(${x}%)` }}
-        >
-          <div className="thread-line" />
-          <div className="thread-node">
-            <div className="thread-image">
-              <Image
-                src={project.img}
-                alt={project.title}
-                fill
-                sizes="(max-width: 768px) 80vw, 400px"
+        <div className="thread-line-wrapper">
+          <svg
+            className={`thread-svg ${isRtl ? "thread-svg-rtl" : ""}`}
+            viewBox="0 0 200 100"
+            preserveAspectRatio="none"
+          >
+              <defs>
+                <filter
+                  id="threadShadow"
+                  x="-20%"
+                  y="-50%"
+                  width="140%"
+                  height="200%"
+                >
+                  <feDropShadow
+                    dx={0}
+                    dy={4}
+                    stdDeviation={3}
+                    floodColor="#000000"
+                    floodOpacity={0.35}
+                  />
+                </filter>
+              </defs>
+              <path
+                className="thread-path"
+                d="M 0 52 Q 20 40 40 55 T 80 48 T 120 60 T 160 45 T 200 50"
+                strokeDasharray={PATH_LENGTH}
+                strokeDashoffset={dashOffset}
+                filter="url(#threadShadow)"
               />
-            </div>
-            <div className="thread-text">
-              <h2>{project.title}</h2>
-              {project.subtitle && (
-                <p className="thread-subtitle">{project.subtitle}</p>
-              )}
-              <p className="thread-overview">{project.overview}</p>
-            </div>
+          </svg>
+        </div>
+
+        <div className="thread-card">
+          <div className="thread-card-image">
+            <Image
+              src={project.img}
+              alt={project.title}
+              fill
+              sizes="(max-width: 768px) 80vw, 320px"
+            />
+          </div>
+          <div className="thread-card-text">
+            <h2>{project.title}</h2>
+            {project.subtitle && (
+              <p className="thread-card-subtitle">{project.subtitle}</p>
+            )}
+            <p className="thread-card-overview">{project.overview}</p>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+export default function ThreadParallax() {
+  const projectList = Object.values(projects).slice(0, 2);
+
+  if (!projectList.length) return null;
+
+  return (
+    <>
+      {projectList.map((project, index) => (
+        <ThreadBand
+          key={project.title}
+          project={project}
+          direction={index % 2 === 0 ? "ltr" : "rtl"}
+        />
+      ))}
+    </>
   );
 }

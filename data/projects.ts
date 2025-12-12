@@ -21,32 +21,6 @@ export type Project = {
 
 export const projects: Record<string, Project> = {
   // --- Flagship / main projects ---
-  maia: {
-    title: 'The MAIA Experience',
-    subtitle: 'AI Character UX/UI',
-    link: 'https://the-maia-experience.framer.ai/',
-    img: '/images/maia.png',
-    tags: ['AI', 'Conversational', 'Installation', 'Live', 'Social Play'],
-    overview: `An intimate, 10‑minute encounter with MAIA — a real‑time AI character that sees, listens, and converses with visitors inside Prof. Dupin’s study as a pre‑show to a larger story world.`,
-    role: `MS in Emerging Tech, AI & Design at NYU. Solo experience and systems lead across narrative interaction, dialogue pacing, interaction rules, and the full AI pipeline (STT/CV/LLM/TTS) integrated with lighting and set cues.`,
-    outcomes: [
-      'Delivered a 10‑minute, high‑intimacy AI encounter with full production design for dozens of participants.',
-      'Established a reusable AI‑character pipeline for future activations (STT → CV → LLM → TTS → show control).',
-      'Defined patterns for emotional, theatrical AI interaction that can transfer to other storyworlds and products.'
-    ],
-    why: `Natural language interaction is emerging as a primary UX surface. MAIA explores how AI characters can carry narrative and emotional weight in physical space, blending computation with performance while keeping latency low and privacy in the room.`,
-    snapshots: [
-      'Full production design for Prof. Dupin’s office.',
-      'Dialogue state diagram with triggers.',
-      'System schematic (camera → STT → LLM → TTS → led lighting).',
-      'Participant privacy agency to prevent responses to go to the cloud.',
-      'Local LLM running on edge device for low latency.'
-    ],
-    featured: true,
-    outcomesVisual: '/images/MAIA_outcomes.png',
-    processVisual: '/images/MAIA_process.png',
-    overviewVisual: '/images/MAIA_overview.png'
-  },
 
   fairyland: {
     title: 'FAIRYLAND',
@@ -75,6 +49,58 @@ export const projects: Record<string, Project> = {
     overviewVisual: '/images/FAIRYLAND_overview.png'
   },
 
+  emily_was_here: {
+    title: 'Emily Was Here — Brooklyn Bridge Experience',
+    subtitle: 'Geospatial Mixed Reality',
+    img: '/images/emily.png',
+    tags: ['Audio', 'AR', 'XR', 'Place‑based', 'NYC'],
+    overview: `A poetic, GPS‑triggered audio walk across the Brooklyn Bridge. Voiceover, poetry, and ambient sound transform the crossing into an intimate narrative.`,
+    role: `XR Experience Designer & Technical Director — route design, GPS trigger pacing, and sound layering using the ChalkNotes stack.`,
+    outcomes: [
+      'Shipped an on‑demand, location‑locked experience with no live performers or on‑site staff.',
+      'Demonstrated emotional impact through sound‑first design, measured through qualitative feedback and replays.',
+      'Extended the ChalkNotes architecture for more precise environmental and route control.'
+    ],
+    why: `Explores low‑friction, site‑specific storytelling that scales to city landmarks without heavy reliance on the device in the user's hand.`,
+    snapshots: [
+      'GPS triggers for location-based map content.',
+      'Audio layering storyboard.',
+      'Bridge video with participants in flow.',
+      'Original scripts adapted for the Brooklyn Bridge historical landmark.'
+    ],
+    outcomesVisual: '/images/bridge_outcomes.png',
+    processVisual: '/images/bridge_process.png',
+    overviewVisual: '/images/bridge_overview.png',
+    featured: true
+  },
+
+  maia: {
+    title: 'The MAIA Experience',
+    subtitle: 'AI Character UX/UI',
+    link: 'https://the-maia-experience.framer.ai/',
+    img: '/images/maia.png',
+    tags: ['AI', 'Conversational', 'Installation', 'Live', 'Social Play'],
+    overview: `An intimate, 10‑minute encounter with MAIA — a real‑time AI character that sees, listens, and converses with visitors inside Prof. Dupin’s study as a pre‑show to a larger story world.`,
+    role: `MS in Emerging Tech, AI & Design at NYU. Solo experience and systems lead across narrative interaction, dialogue pacing, interaction rules, and the full AI pipeline (STT/CV/LLM/TTS) integrated with lighting and set cues.`,
+    outcomes: [
+      'Delivered a 10‑minute, high‑intimacy AI encounter with full production design for dozens of participants.',
+      'Established a reusable AI‑character pipeline for future activations (STT → CV → LLM → TTS → show control).',
+      'Defined patterns for emotional, theatrical AI interaction that can transfer to other storyworlds and products.'
+    ],
+    why: `Natural language interaction is emerging as a primary UX surface. MAIA explores how AI characters can carry narrative and emotional weight in physical space, blending computation with performance while keeping latency low and privacy in the room.`,
+    snapshots: [
+      'Full production design for Prof. Dupin’s office.',
+      'Dialogue state diagram with triggers.',
+      'System schematic (camera → STT → LLM → TTS → led lighting).',
+      'Participant privacy agency to prevent responses to go to the cloud.',
+      'Local LLM running on edge device for low latency.'
+    ],
+    featured: true,
+    outcomesVisual: '/images/MAIA_outcomes.png',
+    processVisual: '/images/MAIA_process.png',
+    overviewVisual: '/images/MAIA_overview.png'
+  },
+
   chalknotes: {
     title: 'ChalkNotes',
     subtitle: 'XR Storytelling Platform',
@@ -98,31 +124,6 @@ export const projects: Record<string, Project> = {
     outcomesVisual: '/images/CHALKNOTES_OUTCOMES.png',
     processVisual: '/images/CHALKNOTES_process.png',
     overviewVisual: '/images/CHALKNOTES_overview.png',
-    featured: true
-  },
-
-  emily_was_here: {
-    title: 'Emily Was Here — Brooklyn Bridge Experience',
-    subtitle: 'Geospatial Mixed Reality',
-    img: '/images/emily.png',
-    tags: ['Audio', 'AR', 'XR', 'Place‑based', 'NYC'],
-    overview: `A poetic, GPS‑triggered audio walk across the Brooklyn Bridge. Voiceover, poetry, and ambient sound transform the crossing into an intimate narrative.`,
-    role: `XR Experience Designer & Technical Director — route design, GPS trigger pacing, and sound layering using the ChalkNotes stack.`,
-    outcomes: [
-      'Shipped an on‑demand, location‑locked experience with no live performers or on‑site staff.',
-      'Demonstrated emotional impact through sound‑first design, measured through qualitative feedback and replays.',
-      'Extended the ChalkNotes architecture for more precise environmental and route control.'
-    ],
-    why: `Explores low‑friction, site‑specific storytelling that scales to city landmarks without heavy reliance on the device in the user's hand.`,
-    snapshots: [
-      'GPS triggers for location-based map content.',
-      'Audio layering storyboard.',
-      'Bridge video with participants in flow.',
-      'Original scripts adapted for the Brooklyn Bridge historical landmark.'
-    ],
-    outcomesVisual: '/images/bridge_outcomes.png',
-    processVisual: '/images/bridge_process.png',
-    overviewVisual: '/images/bridge_overview.png',
     featured: true
   },
 
