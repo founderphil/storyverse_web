@@ -2,13 +2,24 @@ import React from "react";
 
 export default function ContactCTA() {
   return (
-    <section id="contact" className="py-20" aria-label="Contact">
-      <div className="rounded-2xl border border-neutral-900 p-8 bg-gradient-to-br from-neutral-900/60 to-neutral-900/20">
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-3">Let’s craft your next big innovation together.</h2>
-        <p className="text-neutral-300 max-w-2xl mb-6">I’m based in NYC and open to Staff/Lead Product Design roles and select collaborations. Let’s talk.</p>
-        <div className="flex flex-wrap gap-3">
-          <a href="mailto:phil@storyversenyc.com" className="px-5 py-2.5 rounded-full bg-white text-black font-medium hover:opacity-90 transition">Email Phil</a>
+    <section id="contact" className="contact-section" aria-label="Contact">
+      <div className="contact-card">
+        <h2 className="contact-heading">Let’s craft your next immersive story world.</h2>
+        <p className="contact-copy">
+          Storyverse partners with studios, brands, and storytellers to build emotionally resonant cross-platform worlds. 
+          Leave your customers in awe while deepening their connection to your story.
+        </p>
+        <div className="contact-actions">
+          <a
+            href="mailto:contact@storyversenyc.com"
+            className="contact-primary-button"
+          >
+            Email Storyverse
+          </a>
         </div>
+        <p className="contact-secondary-note">
+          Based in NYC · Available worldwide
+        </p>
       </div>
     </section>
   );

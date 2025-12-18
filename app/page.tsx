@@ -1,5 +1,6 @@
 import ThreadParallax from "@/components/ThreadParallax";
 import Team from "@/components/Team";
+import ContactCTA from "@/components/ContactCTA";
 
 export default function Page() {
   return (
@@ -24,7 +25,9 @@ export default function Page() {
             <p>
               Our mission is to craft deeply felt, nonlinear worlds where human
               experience guides the journey. At Storyverse, you don&apos;t just watch
-              the story. You become it.
+              the story. You become it. 
+            </p><br /><p>  
+              Storyverse is a transmedia production company integrating film, live performance, and technology into our immersive experience design. We engineer tech integrations that enhance the narrative, allowing for a more interactive and personalized experience. We create a space where every individual can explore their own unique story within our shared universe.
             </p>
           </div>
 
@@ -52,9 +55,11 @@ export default function Page() {
       <ThreadParallax />
 
       <Team />
+<br /><br />
+      <ContactCTA />
 
       <footer>
-        &copy; 2025 StoryverseNYC Inc. — All rights reserved
+        &copy; 2026 StoryverseNYC Inc. — All rights reserved
         <br />
         <a href="mailto:contact@storyversenyc.com">contact@storyversenyc.com</a>
       </footer>

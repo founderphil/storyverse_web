@@ -1,4 +1,40 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+
+const PATH_LENGTH = 1000;
+
+function useScrollProgress<T extends HTMLElement>() {
+  const ref = useRef<T | null>(null);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => 
+  {
+    const el = ref.current;
+    if (!el) return;
+
+    const update = () => {
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight || 1;
+      const total = rect.height + vh;
+      const visible = vh - rect.top;
+      const p = Math.min(1, Math.max(0, visible / total));
+      setProgress(p);
+    };
+
+    update();
+    window.addEventListener("scroll", update);
+    window.addEventListener("resize", update);
+
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
+  return { ref, progress };
+}
 
 const teamMembers = [
   {
@@ -16,8 +52,23 @@ const teamMembers = [
 ];
 
 export default function Team() {
+  const { ref, progress } = useScrollProgress<HTMLElement>();
+  const pathRef = useRef<SVGPathElement | null>(null);
+  const [pathLength, setPathLength] = useState(PATH_LENGTH);
+
+  useEffect(() => {
+    if (!pathRef.current) return;
+    const length = pathRef.current.getTotalLength();
+    if (!Number.isNaN(length) && length > 0) {
+      setPathLength(length);
+    }
+  }, []);
+
+  const normalizedProgress = Math.min(1, Math.max(0, progress / 0.5));
+  const dashOffset = pathLength * (1 - normalizedProgress);
+
   return (
-    <section className="team-section">
+    <section className="team-section" ref={ref}>
       <div className="team-inner">
         <header className="team-header">
           <p className="team-kicker">The Storyverse team</p>
@@ -57,8 +108,9 @@ export default function Team() {
               <path
                 className="thread-path"
                 d="M 0 52 Q 20 40 40 55 T 80 48 T 120 60 T 160 45 T 200 50"
-                strokeDasharray="1000"
-                strokeDashoffset="0"
+                ref={pathRef}
+                strokeDasharray={pathLength}
+                strokeDashoffset={dashOffset}
                 filter="url(#teamThreadShadow)"
               />
             </svg>
