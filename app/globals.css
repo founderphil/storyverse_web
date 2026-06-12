@@ -414,8 +414,26 @@ footer {
   padding: 0 1rem;
 }
 
+.contact-thread-shell {
+  position: relative;
+  padding-top: 2rem;
+  isolation: isolate;
+}
+
+.contact-thread-line-wrapper {
+  position: absolute;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  top: 50%;
+  height: 170px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .contact-card {
   position: relative;
+  z-index: 1;
   border-radius: 28px;
   padding: 2rem 2.25rem;
   background:
@@ -494,6 +512,18 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .contact-thread-shell {
+    padding-top: 1.25rem;
+  }
+
+  .contact-thread-line-wrapper {
+    left: calc(50% - 50vw);
+    width: 100vw;
+    top: 3.5rem;
+    height: 120px;
+    transform: none;
+  }
+
   .contact-card {
     padding: 1.7rem 1.6rem;
     border-radius: 22px;
@@ -570,10 +600,14 @@ footer {
 
 .team-thread-row {
   position: relative;
-  margin-top: 10rem;
+  margin-top: 3rem;
+  min-height: 560px;
 }
 
 .team-thread-line-wrapper {
+  position: absolute;
+  inset-inline: 0;
+  top: 150px;
   height: 180px;
 }
 
@@ -581,7 +615,7 @@ footer {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: 0 6vw;
   gap: 2rem;
@@ -589,8 +623,8 @@ footer {
 }
 
 .team-member {
-  width: 260px;
-  max-width: 40vw;
+  width: 390px;
+  max-width: 44vw;
   background: #ffffff;
   border-radius: 20px;
   box-shadow: 0 14px 40px rgba(15, 23, 42, 0.16);
@@ -639,7 +673,12 @@ footer {
     padding: 3.5rem 1.25rem 3rem;
   }
 
+  .team-thread-row {
+    min-height: auto;
+  }
+
   .team-thread-line-wrapper {
+    position: static;
     height: 140px;
   }
 

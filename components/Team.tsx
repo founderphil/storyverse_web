@@ -41,13 +41,13 @@ const teamMembers = [
     name: "Alba",
     title: "Creative Director",
     image: "/images/alba.jpg",
-    bio: "Alba is a visionary creative director with a passion for storytelling and immersive experiences. She brings a wealth of knowledge in theater and design to the team.",
+    bio: "Alba is an actor, writer, and immersive creator whose original work spans Off-Broadway, film, and emerging media. A longtime Sleep No More performer and co-founder of Storyverse, she brings elite classical training and a proven track record of building emotionally resonant, boundary-pushing story worlds.",
   },
   {
     name: "Phil",
     title: "Experience Architect",
     image: "/images/phil.jpg",
-    bio: "Phil is an innovative experience architect who specializes in blending technology with storytelling. His expertise in interactive design and immersive environments helps bring the team's visions to life.",
+    bio: "Phil is a product designer and creative technologist with an M.S. in AI and Design from NYU. He specializes in AI-native product strategy, systems design, and immersive experience architecture, turning complex emerging technology into polished, human-centered products and narrative experiences.",
   },
 ];
 
@@ -84,7 +84,7 @@ export default function Team() {
         <div className="team-thread-row">
           <div className="thread-line-wrapper team-thread-line-wrapper">
             <svg
-              className="thread-svg"
+              className="thread-svg thread-svg-rtl"
               viewBox="0 0 200 100"
               preserveAspectRatio="none"
             >
@@ -124,7 +124,7 @@ export default function Team() {
                     src={member.image}
                     alt={member.name}
                     fill
-                    sizes="(max-width: 768px) 60vw, 320px"
+                    sizes="(max-width: 768px) 78vw, 390px"
                   />
                 </div>
                 <div className="team-member-text">
