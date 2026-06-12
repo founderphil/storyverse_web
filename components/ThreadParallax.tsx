@@ -179,17 +179,13 @@ function ThreadBand({
                   src: project.filmTvImg || project.img,
                 },
               ].map(({ label, src }) => {
-                const shouldContain = entry.slug === "aether" && label === "Film/TV";
-
                 return (
                 <div className="thread-mini-card" key={label}>
                   <div className="thread-mini-card-image">
                     <img
                       src={src}
                       alt={`${project.title} - ${label}`}
-                      className={`thread-mini-card-media${
-                        shouldContain ? " thread-mini-card-media-contain" : ""
-                      }`}
+                      className="thread-mini-card-media"
                     />
                   </div>
                   <p className="thread-mini-card-label">{label}</p>
