@@ -5,6 +5,7 @@ export type Project = {
   title: string;
   subtitle?: string;
   link?: string;
+  ctaLabel?: string;
   img: string;
   digitalImg?: string;
   livePerformanceImg?: string;
@@ -25,6 +26,34 @@ export type Project = {
 
 export const projects: Record<string, Project> = {
   // --- Flagship / main projects ---
+
+  aether: {
+    title: 'AETHER',
+    subtitle: 'Live Immersive Retrofuturist 1988 Dance Dream',
+    link: 'https://aether-show.com/',
+    ctaLabel: 'Tickets now on sale',
+    img: '/images/aether_poster.jpeg',
+    digitalImg: '/images/aether_digital.jpg',
+    livePerformanceImg: '/images/aether_performance.jpg',
+    filmTvImg: '/videos/aether_movie.gif',
+    tags: ['Transmedia', 'Live Performance', 'Digital', 'Storyworld'],
+    overview: `AETHER merges live performance, original film, music, and retro-futurist technology into an experience New York has never encountered. Produced off-Broadway, AETHER invites audiences to move through a personalized journey, where interactive installations and handcrafted environments blur the line between story and space. Designed to pull audiences deeper into the universe before and after the show.`,
+    role: `Storyworld designer, experience strategist, and creative technologist shaping how the live production, digital touchpoints, and campaign assets connect into a single audience journey.`,
+    outcomes: [
+      'Connected live performance and digital touchpoints into one clear audience-facing world.',
+      'Created campaign and show assets that support discovery, ticketing, and ongoing engagement.',
+      'Built continuity across performance, digital media, and visual storytelling so the project reads as one cohesive property.'
+    ],
+    why: `Shows how Storyverse translates a show into a cross-platform world with consistent narrative framing and visual identity.`,
+    snapshots: [
+      'Show poster and campaign imagery.',
+      'Digital companion touchpoints.',
+      'Live performance documentation.',
+      'Motion asset for film and web promotion.'
+    ],
+    featured: true,
+    threadBackground: '/images/aether_poster.jpeg'
+  },
 
   fairyland: {
     title: 'FAIRYLAND',

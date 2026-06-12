@@ -43,6 +43,8 @@ type ProjectEntry = {
   project: Project;
 };
 
+const HOMEPAGE_PROJECT_SLUGS = ["aether", "fairyland", "emily_was_here"] as const;
+
 function ThreadBand({
   entry,
   direction,
@@ -176,19 +178,24 @@ function ThreadBand({
                   label: "Film/TV",
                   src: project.filmTvImg || project.img,
                 },
-              ].map(({ label, src }) => (
+              ].map(({ label, src }) => {
+                const shouldContain = entry.slug === "aether" && label === "Film/TV";
+
+                return (
                 <div className="thread-mini-card" key={label}>
                   <div className="thread-mini-card-image">
-                    <Image
+                    <img
                       src={src}
                       alt={`${project.title} - ${label}`}
-                      fill
-                      sizes="(max-width: 768px) 30vw, 200px"
+                      className={`thread-mini-card-media${
+                        shouldContain ? " thread-mini-card-media-contain" : ""
+                      }`}
                     />
                   </div>
                   <p className="thread-mini-card-label">{label}</p>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
@@ -199,7 +206,7 @@ function ThreadBand({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View full project
+                {project.ctaLabel ?? "View full project"}
               </a>
             </div>
           )}
@@ -210,9 +217,11 @@ function ThreadBand({
 }
 
 export default function ThreadParallax() {
-  const projectList: ProjectEntry[] = Object.entries(projects)
-    .slice(0, 2)
-    .map(([slug, project]) => ({ slug, project }));
+  const projectList: ProjectEntry[] = HOMEPAGE_PROJECT_SLUGS.flatMap((slug) => {
+    const project = projects[slug];
+
+    return project ? [{ slug, project }] : [];
+  });
 
   if (!projectList.length) return null;
 

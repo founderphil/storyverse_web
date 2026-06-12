@@ -356,6 +356,19 @@ footer {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
 }
 
+.thread-mini-card-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.thread-mini-card-media-contain {
+  object-fit: contain;
+}
+
 .thread-mini-card-label {
   font-size: 0.9rem;
   font-weight: 600;

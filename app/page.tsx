@@ -26,11 +26,11 @@ export default function Page() {
               Our mission is to craft deeply felt, nonlinear worlds where human
               experience guides the journey. At Storyverse, you don&apos;t just watch
               the story. You become it. 
-            </p><br /><p>  
-              Storyverse is a transmedia production company integrating film, live performance, and technology into our immersive experience design. We engineer tech integrations that enhance the narrative, allowing for a more interactive and personalized experience. We create a space where every individual can explore their own unique story within our shared universe.
+            </p><br />
+            <p>  
+            Storyverse is a full-service immersive production studio. We handle the entire creative lifecycle - from scripting and storyboarding to experience design and technical engineering. We do more than bolt technology onto a story; we write narratives that are born digital, blending film, live performance, and AI into a cohesive world where the story and the system are one. We ensure the tech never overshadows the narrative, but rather makes it personal, tangible, and alive. We create a space where every individual can explore their own unique story within our shared universe.
             </p>
-          </div>
-
+            </div>
           <div className="mission-video">
             <div className="mission-video-frame">
               <video controls width="100%">
