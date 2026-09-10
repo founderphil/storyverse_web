@@ -31,7 +31,7 @@ export const projects: Record<string, Project> = {
     title: 'AETHER',
     subtitle: 'Live Immersive Retrofuturist 1988 Dance Dream',
     link: 'https://aether-show.com/',
-    ctaLabel: 'Tickets now on sale',
+    ctaLabel: 'Corporate Events Now Booking',
     img: '/images/aether_poster.jpeg',
     digitalImg: '/images/aether_digital.jpg',
     livePerformanceImg: '/images/aether_performance.jpg',
