@@ -39,15 +39,15 @@ function useScrollProgress<T extends HTMLElement>() {
 const teamMembers = [
   {
     name: "Alba Albanese",
-    title: "Creative Director",
+    title: "Chief Creative Designer",
     image: "/images/alba.jpg",
     bio: "Alba is an actor, writer, and immersive creator whose original work spans Off-Broadway, film, and emerging media. A longtime Sleep No More performer and co-founder of Storyverse, she brings elite classical training and a proven track record of building emotionally resonant, boundary-pushing story worlds.",
   },
   {
     name: "Phil Olarte",
-    title: "Experience Architect",
+    title: "Chief Creative Technologist",
     image: "/images/phil.jpg",
-    bio: "Phil is a product designer and creative technologist with an M.S. in AI and Design from NYU. He specializes in AI-native product strategy, systems design, and immersive experience architecture, turning complex emerging technology into polished, human-centered products and narrative experiences.",
+    bio: "Phil is a tech product designer, 4X tech founder, and creative technologist with an M.S. in AI and Design from NYU. He specializes in AI-native product strategy, systems design, and immersive experience architecture, turning complex emerging technology into polished, human-centered products and narrative experiences.",
   },
 ];
 
