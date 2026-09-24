@@ -38,13 +38,13 @@ function useScrollProgress<T extends HTMLElement>() {
 
 const teamMembers = [
   {
-    name: "Alba",
+    name: "Alba Albanese",
     title: "Creative Director",
     image: "/images/alba.jpg",
     bio: "Alba is an actor, writer, and immersive creator whose original work spans Off-Broadway, film, and emerging media. A longtime Sleep No More performer and co-founder of Storyverse, she brings elite classical training and a proven track record of building emotionally resonant, boundary-pushing story worlds.",
   },
   {
-    name: "Phil",
+    name: "Phil Olarte",
     title: "Experience Architect",
     image: "/images/phil.jpg",
     bio: "Phil is a product designer and creative technologist with an M.S. in AI and Design from NYU. He specializes in AI-native product strategy, systems design, and immersive experience architecture, turning complex emerging technology into polished, human-centered products and narrative experiences.",
@@ -68,20 +68,19 @@ export default function Team() {
   const dashOffset = pathLength * (1 - normalizedProgress);
 
   return (
-    <section className="team-section" ref={ref}>
+    <section id="team" className="team-section" ref={ref}>
       <div className="team-inner">
         <header className="team-header">
-          <p className="team-kicker">The Storyverse team</p>
-          <h2>Humans behind the worlds</h2>
+          <p className="team-kicker">Senior NYC team</p>
+          <h2>The humans behind your world</h2>
           <p className="team-intro">
-            Alba and Phil are passionate about crafting immersive experiences that
-            blur the lines between story and reality. With backgrounds in theater,
-            technology, and design, they bring a unique blend of skills to each
-            project.
+            Creative direction and technical architecture at the same table.
+            Co-founders Alba Albanese and Phil Olarte bring performance,
+            storytelling, product design, and engineering into one connected process.
           </p>
         </header>
 
-        <div className="team-thread-row">
+        <div className="team-thread-row" data-story-thread="cross">
           <div className="thread-line-wrapper team-thread-line-wrapper">
             <svg
               className="thread-svg thread-svg-rtl"

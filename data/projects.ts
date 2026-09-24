@@ -3,6 +3,10 @@
 
 export type Project = {
   title: string;
+  caseStudyCopy?: string[];
+  buyerBrief?: string;
+  buyerOutcome?: string;
+  delivery?: string;
   subtitle?: string;
   link?: string;
   ctaLabel?: string;
@@ -22,12 +26,21 @@ export type Project = {
   overviewVisual?: string;
   featuredVideo?: string;
   threadBackground?: string;
+  threadBackgroundViewBox?: string;
 };
 
 export const projects: Record<string, Project> = {
   // --- Flagship / main projects ---
 
   aether: {
+    caseStudyCopy: [
+      'AETHER began as a live retrofuturist dance dream and grew into a world audiences could enter across stage, screen, and digital media.',
+      'Storyverse connected the production’s performance, original film, campaign imagery, and digital touchpoints around one recognizable visual and narrative language.',
+      'Each piece was designed to do more than promote the show: it gave audiences another way into the world before arrival and a reason to remain connected after the performance.'
+    ],
+    buyerBrief: 'Connect a live production with a recognizable world across performance, film, and digital touchpoints.',
+    buyerOutcome: 'A cohesive audience journey, with campaign and show assets supporting discovery, ticketing, and engagement beyond the performance.',
+    delivery: 'Storyworld strategy · Campaign assets · Digital companions · Live and film continuity',
     title: 'AETHER',
     subtitle: 'Live Immersive Retrofuturist 1988 Dance Dream',
     link: 'https://aether-show.com/',
@@ -56,6 +69,14 @@ export const projects: Record<string, Project> = {
   },
 
   fairyland: {
+    caseStudyCopy: [
+      'FAIRYLAND is a living storyworld built to continue beyond a single performance. Live events, web experiences, film, and AI-driven character encounters all become part of the same audience journey.',
+      'Storyverse shaped the experience around continuity: the first invitation, the path into the live event, and the digital encounters that keep the world active afterward.',
+      'The result is a flexible platform for participation—one that gives audiences multiple points of entry while keeping the voice, rules, and feeling of the world intact.'
+    ],
+    buyerBrief: 'Keep a live storyworld accessible and participatory across web, film, and AI character encounters.',
+    buyerOutcome: 'Connected live and digital touchpoints, with onboarding and pre- and post-show story loops that give audiences more ways into the world.',
+    delivery: 'Experience strategy · Ticketing and onboarding UX · AI character interactions · Cross-platform design',
     title: 'FAIRYLAND',
     subtitle: 'Live + AI Storyworld',
     link: 'https://fairylandshow.com/',
@@ -87,11 +108,19 @@ export const projects: Record<string, Project> = {
   },
 
   emily_was_here: {
-    title: 'Emily Was Here — Brooklyn Bridge Experience',
-    subtitle: 'Geospatial Mixed Reality',
+    caseStudyCopy: [
+      'EMILY WAS HERE turns a walk across the Brooklyn Bridge into a private encounter with history, memory, and place.',
+      'Storyverse created a GPS-triggered experience in which voice, poetry, ambient sound, and the physical rhythm of the crossing unfold together. The phone delivers the story, then gets out of the way.',
+      'Because the experience is location-aware and self-guided, the bridge becomes both the setting and the stage—available whenever an audience member is ready to begin.'
+    ],
+    buyerBrief: 'Turn a public landmark into an intimate narrative audiences can experience on their own schedule.',
+    buyerOutcome: 'An on-demand, GPS-triggered audio experience that brings a performed story to the bridge without requiring a staffed live show for every visitor.',
+    delivery: 'Original narrative · Route and GPS pacing · Audio design · Mixed-reality engineering',
+    title: 'EMILY WAS HERE',
+    subtitle: 'Brooklyn Bridge Experience',
     link: 'https://brooklynbridgeexperience.com/',
     img: '/images/emily.png',
-    digitalImg: '/images/chalknotes.png',
+    digitalImg: '/images/emily-iphone-17-pro-max-orange.jpg',
     livePerformanceImg: '/images/emily.png',
     filmTvImg: '/videos/bridge_movie.gif',
     tags: ['Audio', 'AR', 'XR', 'Place‑based', 'NYC'],
@@ -109,7 +138,10 @@ export const projects: Record<string, Project> = {
       'Bridge video with participants in flow.',
       'Original scripts adapted for the Brooklyn Bridge historical landmark.'
     ],
+    overviewVisual: '/images/bridge_process.png',
+    outcomesVisual: '/images/bridge_outcomes.png',
     threadBackground: '/images/bridge_overview.png',
+    threadBackgroundViewBox: '0 244 2710 1992',
     featured: true
   },
 

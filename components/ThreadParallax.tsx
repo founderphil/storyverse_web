@@ -26,10 +26,13 @@ function useScrollProgress<T extends HTMLElement>() {
     };
 
     update();
+    const observer = new ResizeObserver(update);
+    observer.observe(el);
     window.addEventListener("scroll", update);
     window.addEventListener("resize", update);
 
     return () => {
+      observer.disconnect();
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
@@ -52,8 +55,21 @@ function ThreadBand({
   entry: ProjectEntry;
   direction: Direction;
 }) {
-  const { project } = entry;
+  const { project, slug } = entry;
   const { ref, progress } = useScrollProgress<HTMLElement>();
+  const contentRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const section = ref.current;
+    const content = contentRef.current;
+    if (!section || !content) return;
+    // Double the natural content height without adding uncovered space between projects.
+    const updateHeight = () => section.style.setProperty("--work-content-height", `${content.getBoundingClientRect().height}px`);
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(content);
+    updateHeight();
+    return () => observer.disconnect();
+  }, [ref]);
 
   const pathRef = useRef<SVGPathElement | null>(null);
   const [pathLength, setPathLength] = useState(PATH_LENGTH);
@@ -100,7 +116,7 @@ function ThreadBand({
   }
 
   return (
-    <section className="thread-section" ref={ref}>
+    <section className="thread-section" data-story-project={slug} ref={ref}>
       <div className="thread-sticky">
         {hasBackground && (
           <div
@@ -110,17 +126,30 @@ function ThreadBand({
               transform: `translateY(${bgTranslateY}px)`,
             }}
           >
-            <Image
-              src={backgroundSrc!}
-              alt={`${project.title} background`}
-              fill
-              sizes="100vw"
-              style={{ objectFit: "cover" }}
-            />
+            {project.threadBackgroundViewBox ? (
+              <svg
+                viewBox={project.threadBackgroundViewBox}
+                preserveAspectRatio="xMidYMid slice"
+                width="100%"
+                height="100%"
+                role="img"
+                aria-label={`${project.title} background`}
+              >
+                <image href={backgroundSrc!} width="2710" height="2280" />
+              </svg>
+            ) : (
+              <Image
+                src={backgroundSrc!}
+                alt={`${project.title} background`}
+                fill
+                sizes="100vw"
+                style={{ objectFit: "cover" }}
+              />
+            )}
           </div>
         )}
 
-        <div className="thread-band-inner">
+        <div className="thread-band-inner" ref={contentRef}>
           <div className="thread-band-copy">
             <h2>{project.title}</h2>
             {project.subtitle && (
@@ -129,7 +158,7 @@ function ThreadBand({
             <p className="thread-band-overview">{project.overview}</p>
           </div>
 
-          <div className="thread-band-row">
+          <div className="thread-band-row" data-story-thread="cross">
             <div className="thread-line-wrapper">
               <svg
                 className={`thread-svg ${isRtl ? "thread-svg-rtl" : ""}`}
@@ -138,7 +167,7 @@ function ThreadBand({
               >
                 <defs>
                   <filter
-                    id="threadShadow"
+                    id={`threadShadow-${slug}`}
                     x="-20%"
                     y="-50%"
                     width="140%"
@@ -159,7 +188,7 @@ function ThreadBand({
                   ref={pathRef}
                   strokeDasharray={pathLength}
                   strokeDashoffset={dashOffset}
-                  filter="url(#threadShadow)"
+                  filter={`url(#threadShadow-${slug})`}
                 />
               </svg>
             </div>
@@ -181,7 +210,7 @@ function ThreadBand({
               ].map(({ label, src }) => {
                 return (
                 <div className="thread-mini-card" key={label}>
-                  <div className="thread-mini-card-image">
+                  <div className={`thread-mini-card-image ${slug === "emily_was_here" && label === "Digital" ? "emily-digital-surface" : ""}`}>
                     <img
                       src={src}
                       alt={`${project.title} - ${label}`}
@@ -195,17 +224,19 @@ function ThreadBand({
             </div>
           </div>
 
-          {project.link && (
-            <div className="thread-project-cta">
+          <div className="thread-project-actions">
+            <a className="thread-project-button thread-project-button-primary" href={`/work/${slug}`}>THE WORK</a>
+            {project.link && (
               <a
+                className="thread-project-button thread-project-button-secondary"
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {project.ctaLabel ?? "View full project"}
+                LIVE PROJECT ↗
               </a>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </section>

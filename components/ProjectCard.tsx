@@ -20,7 +20,7 @@ export default function ProjectCard({ slug, project }: ProjectCardProps) {
       </div>
       <div className="p-4 space-y-1">
         <h3 className="text-lg font-medium">{project.title}</h3>
-        <p className="text-neutral-400 text-sm">{project.overview}</p>
+        <p className="text-neutral-600 text-sm">{project.buyerOutcome ?? project.overview}</p>
         <div className="flex gap-2 pt-2 flex-wrap">
           {project.tags.map((t) => (
             <span key={t} className="text-xs border border-neutral-700 px-2 py-0.5 rounded-full">{t}</span>
