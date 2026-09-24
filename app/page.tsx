@@ -20,7 +20,7 @@ export default function Page() {
         <section className="buyer-hero" aria-labelledby="hero-heading">
           <div className="buyer-hero-copy">
             <p className="buyer-kicker">NYC studio · Brands & agencies · Available worldwide</p>
-            <h1 id="hero-heading">Brand worlds<br />you can <em>become.</em></h1>
+            <h1 id="hero-heading">Brand worlds<br />you <em>become.</em></h1>
             <p className="buyer-positioning">A full-service studio creating cinematic, performance-led brand worlds—and the technology that lets audiences participate before, during, and after the live experience.</p>
             <div className="buyer-actions"><a className="studio-button studio-button-dark" href="#contact">Start a project ↗</a><a className="studio-button" href="#work">Explore our work ↓</a></div>
             <p className="buyer-hero-note">Creative direction. Film & live performance. Participatory technology.</p>
