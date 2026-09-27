@@ -20,6 +20,12 @@ export type Project = {
   outcomes: string[];
   why: string;
   snapshots: string[];
+  systemBuild?: {
+    kicker?: string;
+    title: string;
+    summary: string;
+    steps: { label: string; detail: string }[];
+  };
   featured?: boolean;
   outcomesVisual?: string;
   processVisual?: string;
@@ -34,36 +40,54 @@ export const projects: Record<string, Project> = {
 
   aether: {
     caseStudyCopy: [
-      'AETHER began as a live retrofuturist dance dream and grew into a world audiences could enter across stage, screen, and digital media.',
-      'Storyverse connected the production’s performance, original film, campaign imagery, and digital touchpoints around one recognizable visual and narrative language.',
-      'Each piece was designed to do more than promote the show: it gave audiences another way into the world before arrival and a reason to remain connected after the performance.'
+      'AETHER: Awakening Annabellee is original IP — a 1988 world with its own story, characters, score, and film, built at full scale in a SoHo venue so audiences could walk through it instead of watch it.',
+      'Storyverse developed the property from the world up. Belle sits at the center of Saint Mary’s Infirmary, and twelve characters hold twelve realms around her: a Locksmith keeping the thresholds, an Apothecary in the herb room, a warrior alchemist, a dream seer, three Whisperers of past, present, and future, the physicians who classified Belle and could not see her, and the Tree of Life past all of them. Handcrafted environments, live dance, original music, and an original film gave that world a physical footprint, and guests moved through it room by room to meet the characters living there.',
+      'A world people walk into has to know they are in it. So Storyverse designed and built the technology in-house. Every guest carried an NFC visitor pass; every character carried a networked light orb. A tap was the entire interface — no app, no phone, no staff handoff — and each tap wrote that encounter to the guest’s own record: which character, which realm, what minute. Nothing about the interaction broke the fiction, because the fiction was the interface.',
+      'That record is what made the ending personal. Guests who reached the characters left with Belle awakened; guests she never felt left her in the Aether. Tapping a pass at the exit terminals played their own night back to them by name, and tapping the same pass to a phone afterward opened a personalized film, a generated map of their path through the infirmary, and a way to stay in the world. The passes came back to the front desk, were audited and reset, and went out again the next night.'
     ],
-    buyerBrief: 'Connect a live production with a recognizable world across performance, film, and digital touchpoints.',
-    buyerOutcome: 'A cohesive audience journey, with campaign and show assets supporting discovery, ticketing, and engagement beyond the performance.',
-    delivery: 'Storyworld strategy · Campaign assets · Digital companions · Live and film continuity',
+    buyerBrief: 'Bring an original 1988 storyworld to life as a walkthrough production, and build the technology that lets the world recognize each guest inside it — with no app, no phone, and no staff handoff.',
+    buyerOutcome: 'An original property staged as a walkthrough world, with a custom NFC and networked-orb system that gave every guest a personal record of their night, an ending chosen by where they had been, and a post-show experience that kept them connected to the world.',
+    delivery: 'Original IP and storyworld development · Walkthrough experience design · NFC visitor passes · Networked character light orbs · Guest journey database · Raspberry Pi projection and exit terminals · Personalized post-show web experience · Campaign assets and film continuity',
     title: 'AETHER',
-    subtitle: 'Live Immersive Retrofuturist 1988 Dance Dream',
+    subtitle: 'Awakening Annabellee · Original IP · Live Immersive Retrofuturist 1988 Dance Dream',
     link: 'https://aether-show.com/',
     ctaLabel: 'Corporate Events Now Booking',
     img: '/images/aether_poster.jpeg',
     digitalImg: '/images/aether_digital.jpg',
     livePerformanceImg: '/images/aether_performance.jpg',
     filmTvImg: '/videos/aether_movie.gif',
-    tags: ['Transmedia', 'Live Performance', 'Digital', 'Storyworld'],
-    overview: `AETHER merges live performance, original film, music, and retro-futurist technology into an experience New York has never encountered. Produced off-Broadway, AETHER invites audiences to move through a personalized journey, where interactive installations and handcrafted environments blur the line between story and space. Designed to pull audiences deeper into the universe before and after the show.`,
-    role: `Storyworld designer, experience strategist, and creative technologist shaping how the live production, digital touchpoints, and campaign assets connect into a single audience journey.`,
+    tags: ['Original IP', 'Transmedia', 'Live Performance', 'Custom Hardware', 'Digital', 'Storyworld'],
+    overview: `AETHER: Awakening Annabellee is an original 1988 storyworld staged as a walkthrough production, where Belle lies at the center of Saint Mary's Infirmary and twelve characters hold twelve realms around her. Guests carry an NFC visitor pass and meet characters holding networked light orbs; every tap records who they found and where, and the world answers with an ending built from their own path. Original film, live dance, handcrafted environments, and custom technology make one property audiences can enter before the show and carry with them after it.`,
+    role: `Storyworld designer, experience strategist, and creative technologist. Storyverse shaped the property and the audience journey, then built the systems that ran it: the NFC visitor passes, the character-carried light orbs that read them, the guest journey database behind the show, the Raspberry Pi exit terminals and projection installations through the building, the interactive phone booth, and the personalized post-show web experience.`,
     outcomes: [
-      'Connected live performance and digital touchpoints into one clear audience-facing world.',
-      'Created campaign and show assets that support discovery, ticketing, and ongoing engagement.',
-      'Built continuity across performance, digital media, and visual storytelling so the project reads as one cohesive property.'
+      'Originated and staged a full property — story, characters, score, film, and environments — as a walkthrough world rather than a seated show.',
+      'Designed and built an NFC-and-orb interaction system that let audiences drive their own path by tapping characters, with no app to download and no staff handoff.',
+      'Turned every tap into a per-guest record, making two distinct endings and individually personalized exits possible at show scale.',
+      'Shipped the in-venue technology stack: exit terminals with synchronized act switching, projection installations, and an interactive phone booth, all running unattended through live performances.',
+      'Extended the night past the curtain with a personalized post-show page, a generated map of each guest’s journey, and a return offer that converted attendance into re-engagement.',
+      'Built a nightly pass-return and reset workflow so physical passes could be audited and recirculated across the run.'
     ],
-    why: `Shows how Storyverse translates a show into a cross-platform world with consistent narrative framing and visual identity.`,
+    why: `Shows Storyverse originating a property and then engineering it — narrative, custom hardware, show control, and guest data as one continuous system — so a walkthrough world can recognize each person inside it and answer them personally, night after night.`,
     snapshots: [
-      'Show poster and campaign imagery.',
-      'Digital companion touchpoints.',
-      'Live performance documentation.',
-      'Motion asset for film and web promotion.'
+      'NFC visitor pass, designed as an artifact of 1988 rather than a ticket.',
+      'Character-carried light orbs that read passes in each realm.',
+      'Guest journey records driving the awakened and Aether endings.',
+      'Exit terminals playing a guest’s own characters back to them.',
+      'Personalized post-show page with generated journey map.',
+      'Show poster, campaign imagery, and original film assets.'
     ],
+    systemBuild: {
+      title: 'A world that knew who was standing in it',
+      summary: 'The interaction had to stay inside the fiction. No app, no phone, no staff handoff — a prop out of 1988, objects the characters carried, and a record of the night assembling itself while guests believed they were only exploring.',
+      steps: [
+        { label: 'The visitor pass', detail: 'Each guest received an NFC pass carrying its own identity, designed to read as an artifact of the world rather than a ticket. Tapping it was the only gesture anyone had to learn.' },
+        { label: 'Orbs the characters carried', detail: 'Networked light orbs in the characters’ hands read the passes and reported each encounter — which character, which guest, what time — so any room in the building could become an interaction point without a screen in it.' },
+        { label: 'A record per guest', detail: 'Every tap wrote to that guest’s own journey: Valdemar at the threshold, Eliza in the herb room, the Whisperers in the lounge. The world accumulated their night instead of resetting between rooms.' },
+        { label: 'Two endings, earned', detail: 'Reaching the characters woke Belle. Reaching none of them left her in the Aether, and the guest was told she never felt them pass through. The ending came from their record, not from a fixed cue sheet.' },
+        { label: 'The exit terminals', detail: 'Raspberry Pi stations idled on Belle’s heart monitor behind rear projection until a guest tapped, then named their own characters and realms back to them in under five seconds — fast enough to live inside the flow of people leaving. One command switched all three between acts on the same timestamp.' },
+        { label: 'The night, kept', detail: 'Tapping the same pass to a phone opened a personalized film, a generated map of their path through the infirmary, and a standing invitation back. Passes returned to the front desk, were audited and reset, and went out again the next night.' }
+      ]
+    },
     featured: true,
     threadBackground: '/images/aether_poster.jpeg'
   },

@@ -53,6 +53,24 @@ export default function WorkProjectPage({ params }: { params: { slug: string } }
           </section>
         )}
 
+        {project.systemBuild && (
+          <section className="case-system-build" aria-label={`${project.title} system build`}>
+            <div className="case-system-intro">
+              <p className="buyer-kicker">{project.systemBuild.kicker ?? "The build"}</p>
+              <h2>{project.systemBuild.title}</h2>
+              <p>{project.systemBuild.summary}</p>
+            </div>
+            <ol className="case-system-steps">
+              {project.systemBuild.steps.map(({ label, detail }) => (
+                <li key={label}>
+                  <p className="case-system-step-label">{label}</p>
+                  <p>{detail}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
         {featureImage && (
           <button className="case-study-feature-image case-editorial-feature" type="button" onClick={() => setModalImg(featureImage)} aria-label={`Open ${project.title} feature image`}>
             <img src={featureImage} alt={`${project.title} project feature`} />

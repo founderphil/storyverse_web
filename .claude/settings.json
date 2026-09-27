@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/phil/big_files/**)",
+      "Read(//Users/phil/**)",
+      "Bash(cd /Users/phil/big_files/aether && ls -la && echo \"=== tree \\(depth 2, no node_modules\\) ===\" && find . -maxdepth 2 -not -path \"*/node_modules*\" -not -path \"./.git/*\" | head -60)",
+      "Read(//Users/phil/big_files/aether/**)",
+      "Read(//Users/phil/big_files/aether/docs/**)",
+      "Bash(cd /Users/phil/big_files/aether && cat supabase/schema.sql; echo \"=== exit/ ===\"; ls exit; echo \"=== phonebooth readme ===\"; cat phonebooth/readme_booth.txt; echo \"=== app tree ===\"; find app -type f | head -40)",
+      "Read(//Users/phil/big_files/aether/exit/**)",
+      "Bash(cd /Users/phil/big_files/aether && cat stairwayto88/README.md; echo \"=== finale py head ===\"; head -60 exit/aether_finale.py; echo \"=== videos in exit ===\"; ls exit/videos)",
+      "Bash(cd /Users/phil/big_files/aether && sed -n '40,140p' phonebooth/readme_booth.txt)",
+      "Bash(cd /Users/phil/big_files/aether && grep -rn \"Belle\\\\|1988\\\\|Saint Mary\\\\|Gospel\\\\|SOL\\\\b\" app/awakening/\\\\[uid\\\\]/*.tsx lib/*.ts 2>/dev/null | head -25)"
+    ]
+  }
+}
