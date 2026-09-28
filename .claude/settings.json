@@ -32,6 +32,9 @@
       "Bash(python3 -c ' *)",
       "Bash(lsof -ti:3210 -sTCP:LISTEN)",
       "Bash(xargs -r kill)"
+    ],
+    "additionalDirectories": [
+      "/Users/phil/big_files/aether/docs"
     ]
   }
 }

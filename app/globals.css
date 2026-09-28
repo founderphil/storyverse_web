@@ -966,3 +966,72 @@ body { min-height: 100%; height: auto; }
   .case-study-relevance { margin-top: 3rem; padding: 3rem 1.25rem; border-radius: 20px; }
   .case-study-relevance h2 { font-size: 2.15rem; }
 }
+
+/* Cinematic project treatment: opt-in via project.theme. Dark, atmospheric,
+   project-accented; reverts to the plain white template for every project
+   without a theme. Reserves the clean white page background for the
+   closing result/CTA section, which sits outside this wrapper. */
+.case-study-cinematic { padding-top: 0; }
+.case-cinematic {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 0%, color-mix(in srgb, var(--case-accent) 24%, transparent), transparent 55%),
+    radial-gradient(circle at 85% 22%, color-mix(in srgb, var(--case-accent-2) 20%, transparent), transparent 52%),
+    #020617;
+  padding: clamp(2.5rem, 6vw, 5rem) 1.5rem clamp(4rem, 8vw, 7rem);
+}
+.case-cinematic > *:not(.case-cinematic-texture) { position: relative; z-index: 2; }
+.case-cinematic-texture {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: .35;
+  mix-blend-mode: overlay;
+  background-image:
+    repeating-linear-gradient(rgba(255,255,255,.05) 0px, rgba(255,255,255,.05) 1px, transparent 1px, transparent 3px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 100% 3px, 200px 200px;
+}
+.case-cinematic-header { color: #f5f5f7; max-width: 960px; margin: 0 auto 0; text-align: center; }
+.case-cinematic-header .case-study-back { color: #e5e7eb; border-bottom-color: rgba(255,255,255,.4); }
+.case-cinematic-header .buyer-kicker { color: var(--case-accent); }
+.case-cinematic-header h1 { color: #fff; }
+.case-cinematic-header .case-study-subtitle { color: #c3c6d0; }
+.case-cinematic-header .case-study-deck { color: #e5e7eb; }
+.case-proof-line { margin: 1.5rem auto 0; font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--case-accent); text-align: center; }
+.case-cinematic-hero { position: relative; max-width: var(--case-max); margin: clamp(2.5rem, 5vw, 4rem) auto 0; }
+.case-cinematic-hero .case-study-hero { margin: 0; height: min(58vw, 780px); box-shadow: 0 40px 90px rgba(0,0,0,.55); }
+.case-cinematic-hero::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 0; height: 35%;
+  background: linear-gradient(to bottom, transparent, #020617 92%);
+  pointer-events: none;
+}
+.case-journey-steps {
+  list-style: none; display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: .35rem .5rem; margin: clamp(2.5rem, 5vw, 4rem) auto 0; padding: 0; max-width: 900px;
+  font-size: .8rem; letter-spacing: .05em; text-transform: uppercase; color: #e5e7eb; text-align: center;
+}
+.case-journey-steps li { display: flex; align-items: center; gap: .5rem; }
+.case-journey-steps li:not(:last-child)::after { content: "→"; color: var(--case-accent); margin-left: .5rem; font-size: 1rem; letter-spacing: 0; }
+.case-system-proof { max-width: 760px; margin: clamp(2.5rem, 5vw, 4rem) auto 0; padding: 0 1rem; text-align: center; font-size: clamp(1.2rem, 2.4vw, 1.7rem); line-height: 1.5; letter-spacing: -.01em; color: #fff; }
+.case-cinematic .case-story-row-index { color: var(--case-accent-2); }
+.case-cinematic .case-story-row-copy p:last-child { color: #e5e7eb; }
+.case-cinematic .case-story-row-frame { background: #000; box-shadow: 0 24px 56px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.08); }
+.case-cinematic .case-system-build { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); box-shadow: none; }
+.case-cinematic .case-system-build .buyer-kicker { color: var(--case-accent); }
+.case-cinematic .case-system-build h2 { color: #fff; }
+.case-cinematic .case-system-build > p:last-of-type { color: #c3c6d0; }
+.case-cinematic .case-system-capabilities li { background: transparent; color: #f0eefc; border: 1px solid color-mix(in srgb, var(--case-accent) 55%, transparent); box-shadow: none; }
+@media (max-width: 760px) {
+  .case-cinematic { padding: 2rem 1rem 3rem; }
+  .case-cinematic-hero { margin-top: 2rem; }
+  .case-cinematic-hero .case-study-hero { height: 72vw; }
+  .case-journey-steps { font-size: .66rem; }
+  .case-system-proof { font-size: 1.1rem; margin-top: 2rem; }
+}

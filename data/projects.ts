@@ -26,6 +26,13 @@ export type Project = {
     summary: string;
     capabilities: string[];
   };
+  theme?: {
+    accent: string;
+    secondaryAccent?: string;
+  };
+  proofLine?: string;
+  journeySteps?: string[];
+  systemProof?: string;
   featured?: boolean;
   outcomesVisual?: string;
   processVisual?: string;
@@ -47,6 +54,10 @@ export const projects: Record<string, Project> = {
     buyerBrief: 'An original 1988 storyworld staged as a walkthrough production, built with technology that let the world recognize every guest inside it.',
     buyerOutcome: 'A personalized night for every guest — their own path, their own film, their own map — built on custom technology and an original story.',
     delivery: 'Original IP & Storyworld Development · Walkthrough Experience Design · Guest Identity & Personalization Tech · Live Show Integration · Post-Show Digital Experience · Campaign & Film',
+    proofLine: 'Original Storyverse IP · Produced off-Broadway in NYC',
+    journeySteps: ['Enter', 'Be recognized', 'Shape the story', 'Take your ending with you'],
+    systemProof: 'A physical pass let each guest’s choices shape a personalized in-venue ending and a private post-show digital journey.',
+    theme: { accent: '#ff3fb0', secondaryAccent: '#e8a85c' },
     title: 'AETHER',
     subtitle: 'Awakening Annabellee · Original IP · Live Immersive Retrofuturist 1988 Dance Dream',
     link: 'https://aether-show.com/',
