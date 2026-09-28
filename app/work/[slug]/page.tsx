@@ -12,9 +12,10 @@ export default function WorkProjectPage({ params }: { params: { slug: string } }
 
   if (!project) return <div>Project not found.</div>;
 
+  const labels = project.mediaLabels ?? mediaLabels;
   const media = [project.digitalImg, project.livePerformanceImg, project.filmTvImg]
-    .map((src, index) => ({ src, label: mediaLabels[index] }))
-    .filter((item): item is { src: string; label: typeof mediaLabels[number] } => Boolean(item.src));
+    .map((src, index) => ({ src, label: labels[index] }))
+    .filter((item): item is { src: string; label: string } => Boolean(item.src));
   const scope = project.delivery?.split("·").map(item => item.trim()).filter(Boolean) ?? [];
   const story = project.caseStudyCopy ?? [project.overview];
   const rows = media.map((item, index) => ({ ...item, text: story[index] })).filter(row => Boolean(row.text));

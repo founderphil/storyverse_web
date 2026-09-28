@@ -33,6 +33,7 @@ export type Project = {
   proofLine?: string;
   journeySteps?: string[];
   systemProof?: string;
+  mediaLabels?: [string, string, string];
   featured?: boolean;
   outcomesVisual?: string;
   processVisual?: string;
@@ -100,9 +101,9 @@ export const projects: Record<string, Project> = {
 
   fairyland: {
     caseStudyCopy: [
-      'FAIRYLAND is a living storyworld built to continue beyond a single performance. Live events, web experiences, film, and AI-driven character encounters all become part of the same audience journey.',
+      'FAIRYLAND is a living storyworld with its own companion app — a personal archive where every guest keeps a profile, gathers visions, and returns to a story that keeps evolving beyond the performance.',
       'Storyverse shaped the experience around continuity: the first invitation, the path into the live event, and the digital encounters that keep the world active afterward.',
-      'The result is a flexible platform for participation—one that gives audiences multiple points of entry while keeping the voice, rules, and feeling of the world intact.'
+      'The result is a flexible platform for participation — one that gives audiences multiple points of entry while keeping the voice, rules, and feeling of the world intact.'
     ],
     buyerBrief: 'Keep a live storyworld accessible and participatory across web, film, and AI character encounters.',
     buyerOutcome: 'Connected live and digital touchpoints, with onboarding and pre- and post-show story loops that give audiences more ways into the world.',
@@ -115,12 +116,12 @@ export const projects: Record<string, Project> = {
     livePerformanceImg: '/images/fairyland_live.jpg',
     filmTvImg: '/images/fairyland.gif',
     tags: ['Transmedia', 'AI', 'Experience Design', 'Storyworld'],
-    overview: `A living storyworld that connects audiences across live performance, web, film, and AI‑driven character encounters so engagement continues before, during, and after the show.`,
+    overview: `A living storyworld that connects audiences across live performance, web, film, live streaming, and AI‑driven character encounters so engagement continues before, during, and after the show.`,
     role: `Head of Product UX, Designer, Creative Technologist & Full Stack Engineer — owned experience strategy across mediums, ticketing/onboarding UX, and cohesion between live and digital touchpoints.`,
     outcomes: [
       'Unified offline/online story loops across channels into a single cohesive journey.',
       'Designed frameworks for pre‑ and post‑show engagement that increased repeat touchpoints with fans.',
-      'Codified brand and story cohesion across media so teams could ship faster without fragmenting the world.',
+      'Codified brand and story cohesion across media types and platforms.',
       'Drove strong ticketing and onboarding conversion through streamlined flows and clear narrative framing.'
     ],
     why: `Demonstrates systems‑level product design for hybrid media where narrative continuity drives retention.`,
@@ -130,6 +131,18 @@ export const projects: Record<string, Project> = {
       'AI chat UI tied to lore.',
       'System map of narrative loops.'
     ],
+    systemBuild: {
+      title: 'Built to continue',
+      summary: 'A companion web app connecting the show to an ongoing digital journey with built in AI personalization, so the story keeps running after the audience goes home.',
+      capabilities: [
+        'Guest profile & story archive',
+        'AI character interactions',
+        'Ticketing & onboarding flow',
+        'Cross-platform continuity',
+        'Live Performance integration',
+        'Marker-based Augmented reality'
+      ]
+    },
     featured: true,
     outcomesVisual: '/images/FAIRYLAND_outcomes.png',
     processVisual: '/images/FAIRYLAND_process.png',
@@ -139,19 +152,20 @@ export const projects: Record<string, Project> = {
 
   emily_was_here: {
     caseStudyCopy: [
-      'EMILY WAS HERE turns a walk across the Brooklyn Bridge into a private encounter with history, memory, and place.',
-      'Storyverse created a GPS-triggered experience in which voice, poetry, ambient sound, and the physical rhythm of the crossing unfold together. The phone delivers the story, then gets out of the way.',
-      'Because the experience is location-aware and self-guided, the bridge becomes both the setting and the stage—available whenever an audience member is ready to begin.'
+      'EMILY WAS HERE turns a walk across the Brooklyn Bridge into a private encounter with history, memory, and place. Buy once, go forever — every crossing plays differently.',
+      'Guided by the voice of Emily Warren Roebling — the engineer who saw the bridge to completion — original poetry, ambient sound, and a score set the pace of the crossing. There’s no start time and no staff on the bridge: guests choose their own path from the app, and the phone delivers the story, then gets out of the way.',
+      'Because the experience is location-aware and self-guided, the bridge becomes both the setting and the stage — available whenever an audience member is ready to begin.'
     ],
     buyerBrief: 'Turn a public landmark into an intimate narrative audiences can experience on their own schedule.',
     buyerOutcome: 'An on-demand, GPS-triggered audio experience that brings a performed story to the bridge without requiring a staffed live show for every visitor.',
     delivery: 'Original narrative · Route and GPS pacing · Audio design · Mixed-reality engineering',
+    mediaLabels: ['Digital', 'On the bridge', 'Film / TV'],
     title: 'EMILY WAS HERE',
     subtitle: 'Brooklyn Bridge Experience',
     link: 'https://brooklynbridgeexperience.com/',
     img: '/images/emily.png',
     digitalImg: '/images/emily-iphone-17-pro-max-orange.jpg',
-    livePerformanceImg: '/images/emily.png',
+    livePerformanceImg: '/images/bridge_overview.png',
     filmTvImg: '/videos/bridge_movie.gif',
     tags: ['Audio', 'AR', 'XR', 'Place‑based', 'NYC'],
     overview: `A poetic, GPS‑triggered audio walk across the Brooklyn Bridge. Voiceover, poetry, and ambient sound transform the crossing into an intimate narrative.`,
@@ -168,6 +182,16 @@ export const projects: Record<string, Project> = {
       'Bridge video with participants in flow.',
       'Original scripts adapted for the Brooklyn Bridge historical landmark.'
     ],
+    systemBuild: {
+      title: 'Built on ChalkNotes',
+      summary: 'A location-aware playback engine that turns a walk into a paced, GPS-triggered performance — no staff, no fixed start time.',
+      capabilities: [
+        'GPS-triggered route design',
+        'Location-aware audio pacing',
+        'Built for iOS / AR Kit',
+        'On-demand, self-guided delivery'
+      ]
+    },
     overviewVisual: '/images/bridge_process.png',
     outcomesVisual: '/images/bridge_outcomes.png',
     threadBackground: '/images/bridge_overview.png',
