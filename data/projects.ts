@@ -136,7 +136,7 @@ export const projects: Record<string, Project> = {
       summary: 'A companion web app connecting the show to an ongoing digital journey with built in AI personalization, so the story keeps running after the audience goes home.',
       capabilities: [
         'Guest profile & story archive',
-        'AI character interactions',
+        'AI-powered profile personalization',
         'Ticketing & onboarding flow',
         'Cross-platform continuity',
         'Live Performance integration',
