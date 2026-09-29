@@ -105,9 +105,9 @@ export const projects: Record<string, Project> = {
       'Storyverse shaped the experience around continuity: the first invitation, the path into the live event, and the digital encounters that keep the world active afterward.',
       'The result is a flexible platform for participation — one that gives audiences multiple points of entry while keeping the voice, rules, and feeling of the world intact.'
     ],
-    buyerBrief: 'Keep a live storyworld accessible and participatory across web, film, and AI character encounters.',
+    buyerBrief: 'Keep a live storyworld accessible and participatory across web, film, and AI profile attunement and world generation.',
     buyerOutcome: 'Connected live and digital touchpoints, with onboarding and pre- and post-show story loops that give audiences more ways into the world.',
-    delivery: 'Experience strategy · Ticketing and onboarding UX · AI character interactions · Cross-platform design',
+    delivery: 'Experience strategy · Ticketing and onboarding UX · AI profile creation · Cross-platform design',
     title: 'FAIRYLAND',
     subtitle: 'Live + AI Storyworld',
     link: 'https://fairylandshow.com/',
@@ -116,7 +116,7 @@ export const projects: Record<string, Project> = {
     livePerformanceImg: '/images/fairyland_live.jpg',
     filmTvImg: '/images/fairyland.gif',
     tags: ['Transmedia', 'AI', 'Experience Design', 'Storyworld'],
-    overview: `A living storyworld that connects audiences across live performance, web, film, live streaming, and AI‑driven character encounters so engagement continues before, during, and after the show.`,
+    overview: `A living storyworld that connects audiences across live performance, web, film, live streaming, and AI profile attunement and hyper personalization so engagement continues before, during, and after the show. Viewers become participants.`,
     role: `Head of Product UX, Designer, Creative Technologist & Full Stack Engineer — owned experience strategy across mediums, ticketing/onboarding UX, and cohesion between live and digital touchpoints.`,
     outcomes: [
       'Unified offline/online story loops across channels into a single cohesive journey.',

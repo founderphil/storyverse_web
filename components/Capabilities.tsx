@@ -1,7 +1,7 @@
 const capabilities = [
   { number: "01", title: "Brand worlds & creative direction", copy: "A clear concept, story, and visual language built around your audience and business brief.", detail: "Strategy · Scripts · Storyboards · Experience design" },
   { number: "02", title: "Cinematic & live production", copy: "Film, performance, original music, and physical environments that make your world tangible.", detail: "Film · Live performance · Sound · Production design" },
-  { number: "03", title: "Technology & participation", copy: "Digital companions and interactive systems that invite audiences into the story and keep it alive beyond the event.", detail: "Web · AI characters · Spatial audio · XR" },
+  { number: "03", title: "Technology & participation", copy: "Digital companions and interactive systems that invite audiences into the story and keep it alive beyond the event.", detail: "Web · AI-powered web engines · Spatial audio · XR" },
 ];
 export default function Capabilities() {
   return (
