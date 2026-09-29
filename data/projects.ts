@@ -173,7 +173,7 @@ export const projects: Record<string, Project> = {
     outcomes: [
       'Shipped an on‑demand, location‑locked experience with no live performers or on‑site staff.',
       'Demonstrated emotional impact through sound‑first design, measured through qualitative feedback and replays.',
-      'Extended the ChalkNotes architecture for more precise environmental and route control.'
+      'Custom built architecture for more precise environmental and route control utilizing modern web and mobile technologies.'
     ],
     why: `Explores low‑friction, site‑specific storytelling that scales to city landmarks without heavy reliance on the device in the user's hand.`,
     snapshots: [
@@ -183,7 +183,7 @@ export const projects: Record<string, Project> = {
       'Original scripts adapted for the Brooklyn Bridge historical landmark.'
     ],
     systemBuild: {
-      title: 'Built on ChalkNotes',
+      title: 'Web and iOS application',
       summary: 'A location-aware playback engine that turns a walk into a paced, GPS-triggered performance — no staff, no fixed start time.',
       capabilities: [
         'GPS-triggered route design',
