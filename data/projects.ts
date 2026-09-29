@@ -109,7 +109,7 @@ export const projects: Record<string, Project> = {
     buyerOutcome: 'Connected live and digital touchpoints, with onboarding and pre- and post-show story loops that give audiences more ways into the world.',
     delivery: 'Experience strategy · Ticketing and onboarding UX · AI profile creation · Cross-platform design',
     title: 'FAIRYLAND',
-    subtitle: 'Live + AI Storyworld',
+    subtitle: 'Live Interactive Technology + Original Design + Transmedia Storyworld',
     link: 'https://fairylandshow.com/',
     img: '/images/fairyland.png',
     digitalImg: '/images/FAIRYLAND_outcomes.png',
