@@ -8,6 +8,7 @@ export default function StudioNav() {
       <a className="studio-wordmark" href="/" aria-label="Storyverse home">Storyverse<span>NYC</span></a>
       <button className="studio-menu-toggle" type="button" aria-expanded={open} aria-controls="studio-navigation" onClick={() => setOpen(!open)}>{open ? "Close" : "Menu"}</button>
       <nav id="studio-navigation" aria-label="Main navigation" className={open ? "studio-navigation is-open" : "studio-navigation"}>
+        <a href="/services" onClick={() => setOpen(false)}>Services</a>
         <a href="/#capabilities" onClick={() => setOpen(false)}>Capabilities</a>
         <a href="/#work" onClick={() => setOpen(false)}>Work</a>
         <a href="/#team" onClick={() => setOpen(false)}>Team</a>
