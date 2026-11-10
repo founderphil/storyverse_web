@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:discovery": "node scripts/check-discovery.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

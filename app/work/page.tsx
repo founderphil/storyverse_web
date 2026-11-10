@@ -1,25 +1,8 @@
-'use client';
-import { useState } from 'react';
-import TagBar from '@/components/TagBar';
-import ProjectCard from '@/components/ProjectCard';
-import { projects as projectsData, allTags } from '@/data/projects';
-
+import WorkGrid from "@/components/WorkGrid";
+import StudioNav from "@/components/StudioNav";
+import StudioFooter from "@/components/StudioFooter";
+import { pageMetadata } from "@/lib/seo";
+export const metadata = pageMetadata("Immersive production & interactive storytelling projects", "Explore AETHER, FAIRYLAND, Emily Was Here, and Storyverse’s work across live performance, original IP, AI characters, and location-based storytelling.", "/work");
 export default function WorkPage() {
-  const projectsArray = Object.entries(projectsData);
-  const [active, setActive] = useState<string[]>([]);
-  const filtered = active.length
-    ? projectsArray.filter(([_, p]) => active.every(t => p.tags.includes(t)))
-    : projectsArray;
-
-  return (
-    <div className="py-16 space-y-10">
-      <h1 className="text-4xl font-semibold">Work</h1>
-      <TagBar tags={allTags} active={active} onToggle={(t)=>setActive(prev=>prev.includes(t)?prev.filter(x=>x!==t):[...prev,t])}/>
-      <div className="grid md:grid-cols-3 gap-8">
-        {filtered.map(([slug, project]) => (
-          <ProjectCard key={slug} slug={slug} project={project} />
-        ))}
-      </div>
-    </div>
-  );
+  return <><a className="skip-link" href="#main-content">Skip to content</a><StudioNav /><main id="main-content" className="services-main"><header className="service-introduction"><p className="buyer-kicker">Selected studio work</p><h1>Immersive worlds.<br />Made real.</h1><p>Explore original productions and interactive projects, from live performance and connected objects to digital companions and location-based stories.</p><a className="buyer-text-link" href="/services">Explore what you can commission ↗</a></header><WorkGrid /></main><StudioFooter /></>;
 }
