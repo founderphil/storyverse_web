@@ -14,7 +14,7 @@ export const services: Service[] = [
     slug: "immersive-brand-experiences",
     title: "Custom immersive brand experiences",
     summary: "Story-led brand activations combining live performance, original film, physical environments, and custom technology.",
-    intro: "Storyverse is a New York–based immersive experience studio working with brands and agencies worldwide. We build a narrative around your campaign, theme, or existing IP, then connect the performers, environments, media, and technology that let an audience take part.",
+    intro: "Storyverse is a New York–based immersive experience studio working with brands and agencies worldwide. We build a narrative around your campaign, theme, or existing IP, then connect the performers, environments, media, and technology into one audience journey: building anticipation before arrival, making the live experience personal, and continuing the story afterward.",
     audience: "For brand teams and experiential agencies planning a launch, campaign activation, or a new world around existing intellectual property. Bring us an early concept or a defined brief; we can support an individual activation or a complete experience with your team.",
     deliverables: [
       { title: "A world built around your brief", copy: "Narrative worldbuilding, scripts, storyboards, and a visual language shaped around your audience and objective." },
@@ -34,7 +34,7 @@ export const services: Service[] = [
     slug: "agency-production-partner",
     title: "Immersive production partner for agencies",
     summary: "White-label creative and technical production, pitch feasibility, and interactive builds for experiential agencies.",
-    intro: "Storyverse supports agencies from early pitch feasibility through creative and technical delivery. We can work within your production as a white-label partner, build an individual activation, or connect the story, performance, media, and technology across a complete audience journey.",
+    intro: "Storyverse supports agencies from early pitch feasibility through creative and technical delivery. We can work within your production as a white-label partner, build an individual activation, or connect the story, performance, media, and technology across the audience journey before, during, and after the live event.",
     audience: "For creative directors, agency producers, and experiential teams that need a specialist production partner. Two founders lead each engagement, with a trusted production bench that can expand to 40 across performance, production management, design, film, music, and technical delivery.",
     deliverables: [
       { title: "Feasibility before the pitch", copy: "Early technical input, scope and cost guidance, and an assessment of how the proposed interaction could be delivered." },
@@ -52,10 +52,10 @@ export const services: Service[] = [
   },
   {
     slug: "interactive-experience-technology",
-    title: "Interactive technology for live experiences",
-    summary: "Custom audience technology: NFC-connected objects, conversational AI, mixed reality, responsive environments, and digital companions.",
-    intro: "Storyverse designs and builds the technology that lets stories respond to people. We connect participant identity, choices, and story history across physical objects, live spaces, and digital experiences, choosing the technologies that best serve each production.",
-    audience: "For brands, agencies, venues, and cultural organizations adding interaction to a live event or a place. The brief might be a single responsive prop, a digital companion, a conversational character, or a location-based story across a real environment.",
+    title: "Interactive technology & audience journeys",
+    summary: "Custom technology connecting audiences before, during, and after live experiences: NFC objects, AI characters, mixed reality, and digital companions.",
+    intro: "Storyverse designs and builds the technology that lets stories respond to people. We connect participant identity, choices, and story history across physical objects, live spaces, and digital experiences. Story portals introduce the world before arrival, connected objects and responsive environments make the live experience personal, and digital companions continue the story afterward.",
+    audience: "For brands, agencies, venues, and cultural organizations connecting audiences to a story before, during, and after a live event or a visit to a place. The brief might be a single responsive prop, a digital companion, a conversational character, or a location-based story across a real environment.",
     deliverables: [
       { title: "Connected objects and environments", copy: "Custom hardware and NFC-enabled objects, projection triggers, lighting and sound cues, mesh networks, and computer vision interactions shaped around live participation." },
       { title: "Characters and digital companions", copy: "Voice-driven AI characters, web apps, audience profiles, personalized follow-up, and story archives that connect the live event to an ongoing digital journey." },
@@ -73,7 +73,7 @@ export const services: Service[] = [
   },
   {
     slug: "immersive-corporate-events",
-    title: "Immersive corporate events in NYC",
+    title: "AETHER private & corporate events in NYC",
     summary: "AETHER private and corporate experiences for 50–300 guests in SoHo, with a full cast, immersive programming, and a 1988 dance party.",
     intro: "Bring your company gathering, client event, or brand activation into AETHER, an original Storyverse immersive world. The private-event format combines a venue takeover with a full cast, two hours of immersive programming, and a 1988 dance party in SoHo, New York City.",
     audience: "For company event planners, client experience teams, and brand producers looking for a story-led private event for 50 to 300 guests. We discuss the date, guest count, production scope, and availability with your team before proposing the event.",
