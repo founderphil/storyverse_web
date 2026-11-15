@@ -1,3 +1,4 @@
+import Image from "next/image";
 import WorkGrid from "@/components/WorkGrid";
 import StudioNav from "@/components/StudioNav";
 import StudioFooter from "@/components/StudioFooter";
@@ -29,7 +30,7 @@ export default function WorkPage() {
         <div className="founder-history"><h3>Two paths into one practice.</h3><p>Alba brings a life in acting, writing, and immersive performance. Phil brings a background in music and theater alongside product design and emerging technology. An introduction through Vance and a connection at Cherry Lane Theatre brought their paths together. At Storyverse, they combine those practices to create worlds an audience can enter.</p><a className="buyer-text-link" href="/#team">Meet the founders ↗</a></div>
         <section className="founder-work-group" aria-labelledby="alba-work-heading">
           <header><p className="buyer-kicker">Alba Albanese</p><h3 id="alba-work-heading">Performance & immersive storytelling</h3><p>Selected personal credits, including work under the name Ava Lee Scott.</p></header>
-          <div className="founder-credit-grid">{albaSelectedWork.map(work => <article className="founder-credit-card" key={work.title}><p className="project-credit">{work.credit}</p><h4><a href={work.url} target="_blank" rel="noopener noreferrer">{work.title} ↗</a></h4><p>{work.copy}</p></article>)}</div>
+          <div className="founder-credit-grid">{albaSelectedWork.map(work => <article className="founder-credit-card" key={work.title}><a className="founder-credit-image" href={work.url} target="_blank" rel="noopener noreferrer" aria-label={`Explore ${work.title}`}><Image src={work.image} alt={work.imageAlt} width={920} height={615} sizes="(max-width: 760px) 100vw, 50vw" />{work.imageCredit && <span className="founder-image-credit">{work.imageCredit}</span>}</a><div className="founder-credit-copy"><p className="project-credit">{work.credit}</p><h4><a href={work.url} target="_blank" rel="noopener noreferrer">{work.title} ↗</a></h4><p>{work.copy}</p></div></article>)}</div>
           <a className="buyer-text-link" href="https://www.albaalbanese.com/productions/" target="_blank" rel="noopener noreferrer">Alba’s full selected work ↗</a>
         </section>
         <section className="founder-work-group" aria-labelledby="phil-work-heading">

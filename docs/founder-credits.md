@@ -64,3 +64,12 @@ Searched Phil, Phillip, and Philip Olarte, including ChalkNotes, MAIA, Emily Was
 - Emily Was Here and FAIRYLAND press releases/syndications were found but not treated as independent critical praise.
 
 This research is a selected set of verified findings, not a claim that no other coverage exists.
+
+## Alba project card images
+
+Images copied without raster editing from the corresponding project pages on Alba’s portfolio. Sleep No More comes from the image explicitly titled Sleep No More on her productions page. Local files retain their original color and are cropped consistently in CSS; Serenade retains the source’s David Zayas Jr. photographer attribution.
+
+raven: https://www.albaalbanese.com/wp-content/uploads/brizy/imgs/IMG_5039-1-929x670x5x0x920x670x1771771651.jpg
+serenade: https://www.albaalbanese.com/wp-content/uploads/brizy/imgs/Lillith-in-Serenade-Photo-by-David-Zayas-Jr.-6-920x614x0x0x920x614x1771771646.jpg
+home-of-enchantments: https://www.albaalbanese.com/wp-content/uploads/brizy/imgs/avalee5-1-scaled-976x615x28x0x920x615x1771771693.jpg
+sleep-no-more: https://www.albaalbanese.com/wp-content/uploads/brizy/imgs/SNM-Anabella-Backless-860x582x0x8x860x564x1771771645.jpg
