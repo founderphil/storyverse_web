@@ -12,7 +12,7 @@ The PR includes:
 - Unique metadata, canonical and social URLs, organization/project/breadcrumb structured data, and genuine unknown-route 404s.
 - A sitemap of active pages and explicit OAI-SearchBot access.
 - Clear separation of Storyverse productions and founders' individual work in the work index, project pages, and structured data.
-- Before/during/after photographs extracted unchanged from the owner-supplied capabilities deck, with scroll-synchronized grayscale-to-color interaction and alternating thread crossings.
+- Before/after photographs from the owner-supplied capabilities deck and a distinct original AETHER guest photo for During, with scroll-synchronized grayscale-to-color interaction and alternating thread crossings.
 - Deck-supported AETHER figures: six performances, approximately 700 guests, and a sold-out final performance.
 
 See `docs/founder-credits.md` for provenance and research links. No company client relationship is implied by a founder's personal credit, publication, or festival appearance. Deck pricing is not published.

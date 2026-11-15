@@ -33,10 +33,11 @@ The old Microsoft inCulture Raven article now resolves to a generic Microsoft pa
 
 ## Before/during/after imagery
 
-The three original images are extracted without raster editing from slide 3 of the owner-supplied `Storyverse_Buyer_Capabilities_2026_Final.pptx`:
+The Before and After images are extracted without raster editing from slide 3 of the owner-supplied `Storyverse_Buyer_Capabilities_2026_Final.pptx`:
 
 - `ppt/media/image3.jpeg` -> `public/images/journey-before.jpeg`
-- `ppt/media/image4.jpeg` -> `public/images/journey-during.jpeg`
 - `ppt/media/image5.jpeg` -> `public/images/journey-after.jpeg`
+
+The During image is the original owner-provided `Aether_2026-04_0440.jpg` from the AETHER dress-rehearsal photographs, copied without raster editing to `public/images/journey-during-orb.jpg`. Its CSS crop keeps the guest and orb visible. It replaces the stage photo repeated in the AETHER section.
 
 Grayscale is applied in CSS, with color revealed by scroll progress as the shared thread passes behind each photo. The color progression reverses when scrolling back, works through stacked photos on mobile, and shows full color for reduced-motion preferences. Next.js serves responsive optimized copies. The files remain in color for accessible interaction and future reuse.

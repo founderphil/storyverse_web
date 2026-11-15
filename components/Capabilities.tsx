@@ -7,7 +7,7 @@ const capabilities = [
 ];
 const journey = [
   { phase: "Before", image: "/images/journey-before.jpeg", alt: "Retro arcade and screen from the AETHER storyworld", copy: "Build curiosity and invite audiences in." },
-  { phase: "During", image: "/images/journey-during.jpeg", alt: "AETHER performer surrounded by stage lights and neon", copy: "Make the live moment personal and participatory." },
+  { phase: "During", image: "/images/journey-during-orb.jpg", alt: "An AETHER guest holding a glowing orb in a blue and amber-lit room", copy: "Make the live moment personal and participatory." },
   { phase: "After", image: "/images/journey-after.jpeg", alt: "A cassette recorder and instant photographs from the AETHER world", copy: "Give audiences a reason to return to your world." },
 ];
 export default function Capabilities() {
@@ -22,7 +22,7 @@ export default function Capabilities() {
       <div className="audience-journey" aria-label="Audience journey">
         {journey.map((item, index) => (
           <a className="journey-card" href="/work/aether" key={item.phase}>
-            <div className="journey-media">{index === 0 && <span className="journey-thread-anchor" data-story-thread="cross" data-thread-key="audience-journey" aria-hidden="true" />}<Image src={item.image} alt={item.alt} width={640} height={800} sizes="(max-width: 760px) 100vw, 340px" /></div>
+            <div className="journey-media">{index === 0 && <span className="journey-thread-anchor" data-story-thread="cross" data-thread-key="audience-journey" aria-hidden="true" />}<Image src={item.image} alt={item.alt} width={640} height={800} sizes="(max-width: 760px) 100vw, 340px" style={item.phase === "During" ? { objectPosition: "38% center" } : undefined} /></div>
             <div className="journey-copy">
               <h3>{item.phase}</h3><p>{item.copy}</p>
             </div>
