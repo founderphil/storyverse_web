@@ -39,4 +39,4 @@ The three original images are extracted without raster editing from slide 3 of t
 - `ppt/media/image4.jpeg` -> `public/images/journey-during.jpeg`
 - `ppt/media/image5.jpeg` -> `public/images/journey-after.jpeg`
 
-Grayscale is applied in CSS, with color on hover and keyboard focus. Next.js serves responsive optimized copies. The files remain in color for accessible interaction and future reuse.
+Grayscale is applied in CSS, with color revealed by scroll progress as the shared thread passes behind each photo. The color progression reverses when scrolling back, works through stacked photos on mobile, and shows full color for reduced-motion preferences. Next.js serves responsive optimized copies. The files remain in color for accessible interaction and future reuse.

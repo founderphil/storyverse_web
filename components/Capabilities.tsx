@@ -22,9 +22,8 @@ export default function Capabilities() {
       <div className="audience-journey" aria-label="Audience journey">
         {journey.map((item, index) => (
           <a className="journey-card" href="/work/aether" key={item.phase}>
-            <div className="journey-media"><Image src={item.image} alt={item.alt} width={640} height={800} sizes="(max-width: 760px) 100vw, 340px" /></div>
+            <div className="journey-media">{index === 0 && <span className="journey-thread-anchor" data-story-thread="cross" data-thread-key="audience-journey" aria-hidden="true" />}<Image src={item.image} alt={item.alt} width={640} height={800} sizes="(max-width: 760px) 100vw, 340px" /></div>
             <div className="journey-copy">
-              {index === 0 && <span className="journey-thread-anchor" data-story-thread="cross" data-thread-key="audience-journey" aria-hidden="true" />}
               <h3>{item.phase}</h3><p>{item.copy}</p>
             </div>
           </a>

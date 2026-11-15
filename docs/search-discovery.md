@@ -12,7 +12,7 @@ The PR includes:
 - Unique metadata, canonical and social URLs, organization/project/breadcrumb structured data, and genuine unknown-route 404s.
 - A sitemap of active pages and explicit OAI-SearchBot access.
 - Clear separation of Storyverse productions and founders' individual work in the work index, project pages, and structured data.
-- Before/during/after photographs extracted unchanged from the owner-supplied capabilities deck, with grayscale-to-color interaction in CSS and alternating scroll-drawn thread crossings.
+- Before/during/after photographs extracted unchanged from the owner-supplied capabilities deck, with scroll-synchronized grayscale-to-color interaction and alternating thread crossings.
 - Deck-supported AETHER figures: six performances, approximately 700 guests, and a sold-out final performance.
 
 See `docs/founder-credits.md` for provenance and research links. No company client relationship is implied by a founder's personal credit, publication, or festival appearance. Deck pricing is not published.
@@ -23,7 +23,7 @@ See `docs/founder-credits.md` for provenance and research links. No company clie
 2. Run `npm run build`.
 3. Run `npm run start -- --port 3100`.
 4. In another terminal run `npm run test:discovery` (or set `SITE_TEST_ORIGIN` for a preview URL).
-5. Review `/`, `/work`, and representative project pages on desktop and mobile. Verify mobile navigation, grayscale/color image interaction, thread direction, founder separation, project image expansion, and inquiry links. Confirm service routes return 404. Do not send a test inquiry into the live CRM without coordinating it.
+5. Review `/`, `/work`, and representative project pages on desktop and mobile. Verify mobile navigation, scroll-synchronized image color, thread direction, founder separation, project image expansion, and inquiry links. Confirm service routes return 404. Do not send a test inquiry into the live CRM without coordinating it.
 
 The HTTP smoke check validates sitemap coverage, independent canonical and social URLs, unique titles/descriptions, structured data, initial HTML content without JavaScript, internal links/assets, crawler access, and unknown-route 404s. It also verifies that the existing inquiry form remains available. It never submits the form.
 
