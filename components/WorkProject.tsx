@@ -19,6 +19,12 @@ export default function WorkProjectPage({ params }: { params: { slug: string } }
   const scope = project.delivery?.split("·").map(item => item.trim()).filter(Boolean) ?? [];
   const story = project.caseStudyCopy ?? [project.overview];
   const rows = media.map((item, index) => ({ ...item, text: story[index] })).filter(row => Boolean(row.text));
+  const productionIntro = project.productionIntro && (
+    <section className="case-production-intro" aria-label={`${project.title} production scale and capabilities`}>
+      <p className="buyer-kicker">Production scope</p>
+      {project.productionIntro.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+    </section>
+  );
   const cinematic = Boolean(project.theme);
 
   const themeStyle = project.theme
@@ -48,6 +54,8 @@ export default function WorkProjectPage({ params }: { params: { slug: string } }
                 <img src={project.img} alt={`${project.title} hero`} />
               </button>
             </div>
+
+            {productionIntro}
 
             {project.journeySteps && project.journeySteps.length > 0 && (
               <ol className="case-journey-steps">
@@ -82,7 +90,7 @@ export default function WorkProjectPage({ params }: { params: { slug: string } }
 
             {project.systemBuild && (
               <section className="case-system-build" aria-label={`${project.title} system build`}>
-                <p className="buyer-kicker">{project.systemBuild.kicker ?? "The build"}</p>
+                <p className="buyer-kicker">{project.systemBuild.kicker ?? "Technology Involved"}</p>
                 <h2>{project.systemBuild.title}</h2>
                 <p>{project.systemBuild.summary}</p>
                 <ul className="case-system-capabilities">
@@ -111,6 +119,8 @@ export default function WorkProjectPage({ params }: { params: { slug: string } }
               <img src={project.img} alt={`${project.title} hero`} />
             </button>
 
+            {productionIntro}
+
             {rows.length > 0 && (
               <section className="case-story-rows" aria-label={`${project.title} project story`}>
                 {rows.map(({ src, label, text }, index) => (
@@ -136,7 +146,7 @@ export default function WorkProjectPage({ params }: { params: { slug: string } }
 
             {project.systemBuild && (
               <section className="case-system-build" aria-label={`${project.title} system build`}>
-                <p className="buyer-kicker">{project.systemBuild.kicker ?? "The build"}</p>
+                <p className="buyer-kicker">{project.systemBuild.kicker ?? "Technology Involved"}</p>
                 <h2>{project.systemBuild.title}</h2>
                 <p>{project.systemBuild.summary}</p>
                 <ul className="case-system-capabilities">

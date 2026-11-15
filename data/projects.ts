@@ -6,6 +6,7 @@ export type Project = {
   origin: "storyverse" | "founder";
   credit: string;
   caseStudyCopy?: string[];
+  productionIntro?: string[];
   buyerBrief?: string;
   buyerOutcome?: string;
   delivery?: string;
@@ -49,6 +50,11 @@ export const projects: Record<string, Project> = {
   // --- Flagship / main projects ---
 
   aether: {
+    productionIntro: [
+      "An original Off-Broadway immersive production at GOSPËL, SoHo’s multi-room nightlife venue. Storyverse transformed a working nightclub into a retro-futurist storyworld welcoming up to 200 guests per night through a carefully paced, timed-entry experience.",
+      "We assembled and led a 30-person team to deliver the production from concept to curtain: original storytelling and score, creative direction, casting experienced immersive performers, live DJ programming, costumes, makeup, fabricated sets and props, production management, and line producing with budget oversight. One studio connected the creative ambition to the people, physical environment, and operational detail needed to make it real.",
+      "We also invented and built the technology that let the world follow each guest. A personal pass connected encounters across the live experience, shaping an individual ending and a digital continuation guests could take home. The result demonstrates a complete production capability: original IP, multidisciplinary delivery, live operations, and audience personalization working as one.",
+    ],
     origin: "storyverse",
     credit: "A Storyverse production",
     caseStudyCopy: [
@@ -59,7 +65,7 @@ export const projects: Record<string, Project> = {
     buyerBrief: 'An original 1988 storyworld staged as a walkthrough production, built with technology that let the world recognize every guest inside it.',
     buyerOutcome: 'A personalized night for every guest — their own path, their own film, their own map — built on custom technology and an original story.',
     delivery: 'Original IP & Storyworld Development · Walkthrough Experience Design · Guest Identity & Personalization Tech · Live Show Integration · Post-Show Digital Experience · Campaign & Film',
-    proofLine: 'Original Storyverse IP · Produced Off-Broadway in NYC · 6 performances · Approximately 700 guests · Sold-out final performance',
+    proofLine: 'Original Storyverse IP · Produced Off-Broadway in NYC · Up to 200 guests per night · 30-person production team · Timed entry',
     journeySteps: ['Enter', 'Be recognized', 'Shape the story', 'Take your ending with you'],
     systemProof: 'A physical pass let each guest’s choices shape a personalized in-venue ending and a private post-show digital journey.',
     theme: { accent: '#ff3fb0', secondaryAccent: '#e8a85c' },
@@ -104,6 +110,11 @@ export const projects: Record<string, Project> = {
   },
 
   fairyland: {
+    productionIntro: [
+      "One original storyworld, unfolding across three live episodes and connected digital experiences. Storyverse brought different moments in FAIRYLAND’s timeline to life at a historic New York City apothecary and in two episodes at GOSPËL, giving each setting a distinct role in a larger narrative.",
+      "We designed and built a shared online audience profile to connect participation across locations, performances, and digital chapters. Instead of treating each event as a standalone encounter, the experience gave audiences a continuing identity within the world—and a reason to return as new episodes emerged.",
+      "Our scope connected original story development, episodic experience design, live and digital production, audience onboarding, and custom platform development. FAIRYLAND demonstrates how a property can grow beyond a single event into a connected program of experiences across venues and channels.",
+    ],
     origin: "storyverse",
     credit: "A Storyverse production",
     caseStudyCopy: [
@@ -157,6 +168,11 @@ export const projects: Record<string, Project> = {
   },
 
   emily_was_here: {
+    productionIntro: [
+      "A national landmark became the stage for an original mixed-reality experience. Storyverse conceived and produced EMILY WAS HERE as a self-guided narrative across the Brooklyn Bridge, combining the scale of an iconic public setting with the intimacy of a story heard by one person at a time.",
+      "We delivered the complete piece: original storytelling, route and experience design, voice production, music, sound editing and mixing, and location-aware technology. Voices, score, and environmental sound were composed into a cohesive journey, with GPS-triggered moments connecting the narrative to the crossing itself.",
+      "At a $10 admission price, the experience makes an original production accessible on demand, without a staffed performance for every visitor. It demonstrates how Storyverse can turn a place into a repeatable audience experience through creative production, sound design, and custom technology.",
+    ],
     origin: "storyverse",
     credit: "A Storyverse production",
     caseStudyCopy: [
