@@ -23,10 +23,10 @@ The founding story's introduction through Vance and connection at Cherry Lane Th
 
 ## Selected press links
 
-The founder section names the individual and covered project on each link. It does not present publications or companies as Storyverse clients or endorsements. No press quotes or company logo wall are added without matching evidence.
+The founder section names the individual and covered project on each link. It does not present publications or companies as Storyverse clients or endorsements. Short verified excerpts now appear at the top of the founder section, alongside original publication marks. Each card distinguishes a review, the founder’s own words, an institutional profile, or a festival description. These are source identifiers, not a client or sponsor logo wall.
 
-- The New York Times, “Regilding the Gilded Age in New York,” 2015: linked from Alba’s Serenade page to https://www.nytimes.com/2015/03/01/travel/regilding-the-gilded-age-in-new-york.html . Article is not available to this research tool; context and title verified against Alba's portfolio.
-- The Wall Street Journal, “The Most Seductive Theater Scene in New York Right Now, a Visitor’s Guide,” 2019: the Annabellee coverage is linked to the article scan hosted on Alba's website. It is not mislabeled as a Storyverse review or a review of The Raven.
+- The New York Times, “Regilding the Gilded Age in New York,” 2015: linked from Alba’s Serenade page to https://www.nytimes.com/2015/03/01/travel/regilding-the-gilded-age-in-new-york.html . The excerpt is Alba’s own statement, reproduced on her Serenade/productions portfolio, explicitly credited to her rather than presented as the newspaper’s praise.
+- The Wall Street Journal, “The Most Seductive Theater Scene in New York Right Now, a Visitor’s Guide,” 2019: the Annabellee excerpt was checked against the original article and the article scan hosted on Alba’s website, and links to the original publication. It is not mislabeled as a Storyverse review or a review of The Raven.
 - Film at Lincoln Center: the original 2019 festival program listing for The Raven, with its ensemble of creators named.
 
 The old Microsoft inCulture Raven article now resolves to a generic Microsoft page, so it is not used as a public press link. Unverified Variety coverage and brand/client logos are omitted.
@@ -41,3 +41,26 @@ The Before and After images are extracted without raster editing from slide 3 of
 The During image is the original owner-provided `Aether_2026-04_0440.jpg` from the AETHER dress-rehearsal photographs, copied without raster editing to `public/images/journey-during-orb.jpg`. Its CSS crop keeps the guest and orb visible. It replaces the stage photo repeated in the AETHER section.
 
 Grayscale is applied in CSS, with color revealed by scroll progress as the shared thread passes behind each photo. The color progression reverses when scrolling back, works through stacked photos on mobile, and shows full color for reduced-motion preferences. Next.js serves responsive optimized copies. The files remain in color for accessible interaction and future reuse.
+
+## Quote and logo additions — November 15, 2026
+
+NYU Tandon’s alumni profile is the source for the excerpt about Phil’s technical depth and human-centered AI work: https://engineering.nyu.edu/alumni/phil-olarte . No publication date is asserted. Film at Lincoln Center’s Raven excerpt is a festival program description, not an independent review.
+
+Original logo assets (stored locally, without redrawing the marks):
+- New York Times: https://static01.nyt.com/images/misc/nytlogo379x64.gif
+- Wall Street Journal, supplied on Alba’s portfolio: https://www.albaalbanese.com/wp-content/uploads/2026/11/logo-wall-street-journal.png
+- NYU Tandon, official site header: https://engineering.nyu.edu/themes/custom/tandon/images/Tandon_logo.svg
+- New York Film Festival, supplied on Alba’s portfolio: https://www.albaalbanese.com/wp-content/uploads/brizy/imgs/Picture3-298x120x0x0x298x120x1771771395.png
+
+The white NYFF and NYU marks are placed on dark and purple backgrounds for legibility. Marks identify the linked source only.
+
+## Additional research on Phil
+
+Searched Phil, Phillip, and Philip Olarte, including ChalkNotes, MAIA, Emily Was Here, interviews, and reviews. Namesake swimming results and public-record directories were excluded.
+
+- NYU Tandon: institutional profile discussing Phil’s design/AI practice and MAIA; included on the page.
+- LinkedIn: https://www.linkedin.com/in/phillipolarte . Publicly indexed recommendation by Ethan Mayers, describing their startup collaborations and Phil’s persistence. Verified from the search-indexed excerpt; direct LinkedIn page access was unavailable. Kept out of the publication quote grid because this is a professional recommendation rather than press coverage.
+- VENTS Magazine, July 16, 2022: https://ventsmagazine.com/2022/07/16/emily-was-here-a-unique-experience-where-the-brooklyn-bridge-is-the-stage/ . Interview with Phil and Alba, containing their own words. Not represented as an independent review or testimonial.
+- Emily Was Here and FAIRYLAND press releases/syndications were found but not treated as independent critical praise.
+
+This research is a selected set of verified findings, not a claim that no other coverage exists.

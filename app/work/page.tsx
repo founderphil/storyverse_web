@@ -1,7 +1,8 @@
 import WorkGrid from "@/components/WorkGrid";
 import StudioNav from "@/components/StudioNav";
 import StudioFooter from "@/components/StudioFooter";
-import { albaSelectedWork, founderPress } from "@/data/founders";
+import FounderPress from "@/components/FounderPress";
+import { albaSelectedWork } from "@/data/founders";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata("Storyverse productions & founders’ work", "Explore Storyverse productions AETHER, FAIRYLAND, and Emily Was Here, alongside the founders’ individual backgrounds in immersive performance and creative technology.", "/work");
@@ -24,6 +25,7 @@ export default function WorkPage() {
       <section id="founders-work" className="work-collection founders-collection" aria-labelledby="founders-work-heading">
         <p className="buyer-kicker">The experience behind the studio</p><h2 id="founders-work-heading">Founders’ work</h2>
         <p className="work-section-intro">Earlier and independent projects by our founders, credited to their individual roles. These are separate from Storyverse productions.</p>
+        <FounderPress />
         <div className="founder-history"><h3>Two paths into one practice.</h3><p>Alba brings a life in acting, writing, and immersive performance. Phil brings a background in music and theater alongside product design and emerging technology. An introduction through Vance and a connection at Cherry Lane Theatre brought their paths together. At Storyverse, they combine those practices to create worlds an audience can enter.</p><a className="buyer-text-link" href="/#team">Meet the founders ↗</a></div>
         <section className="founder-work-group" aria-labelledby="alba-work-heading">
           <header><p className="buyer-kicker">Alba Albanese</p><h3 id="alba-work-heading">Performance & immersive storytelling</h3><p>Selected personal credits, including work under the name Ava Lee Scott.</p></header>
@@ -35,7 +37,7 @@ export default function WorkPage() {
           <WorkGrid origin="founder" />
           <a className="buyer-text-link" href="https://www.phillipolarte.com/" target="_blank" rel="noopener noreferrer">Phil’s full selected work ↗</a>
         </section>
-        <section className="founder-press" aria-labelledby="founder-press-heading"><p className="buyer-kicker">Selected founder coverage</p><h3 id="founder-press-heading">In the press & on the program.</h3><div className="founder-press-grid">{founderPress.map(item => <a href={item.url} target="_blank" rel="noopener noreferrer" key={item.publication}><span className="press-publication">{item.publication}</span><span>{item.title} ↗</span><span className="project-credit">{item.credit}</span></a>)}</div></section>
+
       </section>
     </main><StudioFooter />
   </>;
