@@ -17,7 +17,8 @@ const sitemapResponse = await get('/sitemap.xml');
 assert.equal(sitemapResponse.status, 200);
 const sitemap = await sitemapResponse.text();
 const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(match => new URL(match[1]));
-assert.equal(urls.length, 13, 'home, services, work, four services, six projects');
+assert.equal(urls.length, 8, 'home, work, and six projects; service pages are disabled');
+assert.ok(urls.every(url => !url.pathname.startsWith('/services')));
 assert.equal(new Set(urls.map(url => url.href)).size, urls.length);
 const titles = new Set();
 const descriptions = new Set();
@@ -46,15 +47,20 @@ for (const url of urls) {
   assert.equal([...html.matchAll(/<h1\b/g)].length, 1, `one initial-HTML heading on ${url.pathname}`);
   const schemas = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)].map(match => JSON.parse(match[1]));
   assert.ok(schemas.some(schema => schema['@type'] === 'Organization'));
-  if (url.pathname.startsWith('/services/')) {
-    const service = schemas.find(schema => schema['@type'] === 'Service');
-    assert.equal(service?.url, url.href);
-    assert.equal(service?.provider['@id'], `${canonicalOrigin}/#organization`);
-    assert.match(html, /Relevant work/);
-    assert.match(html, /href="\/#contact"/);
+  if (url.pathname.startsWith('/work/')) {
+    const work = schemas.find(schema => schema['@type'] === 'CreativeWork');
+    assert.ok(work);
+    if (['/work/maia', '/work/chalknotes', '/work/juliet_wherefore'].includes(url.pathname)) {
+      assert.equal(work.contributor?.name, 'Phil Olarte');
+      assert.equal(work.creator, undefined, 'independent contributions must not claim Storyverse authorship');
+      assert.match(html, /Independent project/);
+    } else {
+      assert.equal(work.creator?.['@id'], `${canonicalOrigin}/#organization`);
+    }
   }
-  if (url.pathname.startsWith('/work/')) assert.ok(schemas.some(schema => schema['@type'] === 'CreativeWork'));
-  if (url.pathname.startsWith('/work/') || url.pathname.startsWith('/services/')) {
+  assert.doesNotMatch(html, /<a\b[^>]*href="\/services/);
+
+  if (url.pathname.startsWith('/work/')) {
     const breadcrumb = schemas.find(schema => schema['@type'] === 'BreadcrumbList');
     assert.equal(breadcrumb?.itemListElement.at(-1).item, url.href);
   }
@@ -62,6 +68,7 @@ for (const url of urls) {
   for (const [, src] of html.matchAll(/<img\b[^>]*src="(\/[^" ]+)"/g)) assets.add(src.replaceAll('&amp;', '&'));
   if (url.pathname === '/') {
     assert.match(html, /New York immersive experience studio/);
+    assert.doesNotMatch(html, /What can we create for you/);
     assert.match(html, /name="email"/);
     assert.match(html, /name="message"/);
   }
@@ -72,7 +79,7 @@ for (const src of assets) {
   assert.equal(response.status, 200, `image ${src}`);
   await response.body?.cancel();
 }
-for (const path of ['/work/nonexistent-project', '/work/toString', '/services/nonexistent-service']) {
+for (const path of ['/work/nonexistent-project', '/work/toString', '/services', '/services/nonexistent-service', '/services/immersive-brand-experiences', '/services/agency-production-partner', '/services/interactive-experience-technology', '/services/immersive-corporate-events']) {
   assert.equal((await get(path)).status, 404, `unknown route ${path}`);
 }
 console.log(`Passed: ${urls.length} pages, ${linkedPaths.size} internal destinations, ${assets.size} images, metadata, structured data, crawler access, and 404s.`);

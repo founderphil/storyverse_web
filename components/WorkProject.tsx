@@ -34,8 +34,9 @@ export default function WorkProjectPage({ params }: { params: { slug: string } }
             <div className="case-cinematic-texture" aria-hidden="true" />
 
             <header className="case-study-header case-cinematic-header">
-              <a className="case-study-back" href="/#work">← Selected studio work</a>
-              <p className="buyer-kicker">Storyverse project</p>
+              <a className="case-study-back" href={project.origin === "storyverse" ? "/work#storyverse-work" : "/work#founders-work"}>← {project.origin === "storyverse" ? "Storyverse work" : "Founders’ work"}</a>
+              <p className="buyer-kicker">{project.origin === "storyverse" ? "Storyverse production" : "Founders’ work · Independent project"}</p>
+              <p className="project-credit">{project.credit}</p>
               <h1>{project.title}</h1>
               {project.subtitle && <p className="case-study-subtitle">{project.subtitle}</p>}
               <p className="case-study-deck">{project.buyerBrief ?? project.overview}</p>
@@ -93,8 +94,9 @@ export default function WorkProjectPage({ params }: { params: { slug: string } }
         ) : (
           <>
             <header className="case-study-header">
-              <a className="case-study-back" href="/#work">← Selected studio work</a>
-              <p className="buyer-kicker">Storyverse project</p>
+              <a className="case-study-back" href={project.origin === "storyverse" ? "/work#storyverse-work" : "/work#founders-work"}>← {project.origin === "storyverse" ? "Storyverse work" : "Founders’ work"}</a>
+              <p className="buyer-kicker">{project.origin === "storyverse" ? "Storyverse production" : "Founders’ work · Independent project"}</p>
+              <p className="project-credit">{project.credit}</p>
               <h1>{project.title}</h1>
               {project.subtitle && <p className="case-study-subtitle">{project.subtitle}</p>}
               <p className="case-study-deck">{project.buyerBrief ?? project.overview}</p>

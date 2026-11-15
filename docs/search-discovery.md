@@ -2,20 +2,20 @@
 
 ## What this change addresses
 
-The public homepage already described the studio, and existing project pages already provided substantial portfolio detail. The missing layer was a clear route from a buyer's service question to what they can commission and then to relevant evidence.
+The public homepage and existing project pages explain the studio without separate commercial service pages. Service routes are disabled with `SERVICES_ENABLED = false`; their source is retained, but direct requests return 404, and all service links and sitemap entries are removed.
 
-On November 10, 2026, requests to both production `/robots.txt` and `/sitemap.xml` returned HTTP 404. A missing robots file is not itself a crawler block. This change adds explicit search access and a sitemap, rather than claiming either absence caused the studio's omission from recommendations.
+On November 10, 2026, requests to production `/robots.txt` and `/sitemap.xml` returned HTTP 404. A missing robots file is not itself a crawler block. This change adds explicit search access and a sitemap without claiming either absence caused the studio's omission from recommendations.
 
 The PR includes:
 
-- An index and four distinct service pages: immersive brand experiences, agency production partnerships, interactive technology, and AETHER corporate events.
-- Homepage positioning and navigation linking services to existing portfolio evidence.
-- Static server-rendered service/project routes, unique metadata, self-canonical URLs, social metadata, organization/service/project/breadcrumb structured data, and genuine HTTP 404s for unknown projects.
-- A sitemap generated from the same service and project data as the pages.
-- Explicit OAI-SearchBot access with no change requiring training access.
+- Eight active public pages: home, work index, and six existing project pages.
+- Unique metadata, canonical and social URLs, organization/project/breadcrumb structured data, and genuine unknown-route 404s.
+- A sitemap of active pages and explicit OAI-SearchBot access.
+- Clear separation of Storyverse productions and founders' individual work in the work index, project pages, and structured data.
+- Before/during/after photographs extracted unchanged from the owner-supplied capabilities deck, with grayscale-to-color interaction in CSS and alternating scroll-drawn thread crossings.
 - Deck-supported AETHER figures: six performances, approximately 700 guests, and a sold-out final performance.
 
-Copy source: the owner-supplied capabilities deck, reviewed November 10, 2026, and existing project data. Lead times are indicative and subject to fabrication, approvals, and scope. AETHER event availability must be confirmed during inquiry. No new third-party client claims, awards, testimonials, business address, or unverified social profiles are added. Deck pricing is not published.
+See `docs/founder-credits.md` for provenance and research links. No company client relationship is implied by a founder's personal credit, publication, or festival appearance. Deck pricing is not published.
 
 ## Validate locally
 
@@ -23,7 +23,7 @@ Copy source: the owner-supplied capabilities deck, reviewed November 10, 2026, a
 2. Run `npm run build`.
 3. Run `npm run start -- --port 3100`.
 4. In another terminal run `npm run test:discovery` (or set `SITE_TEST_ORIGIN` for a preview URL).
-5. Review `/`, `/services`, each service, `/work`, and representative projects on desktop and mobile. Verify mobile navigation, project filtering, project image expansion, and inquiry links. Do not send a test inquiry into the live CRM without coordinating it.
+5. Review `/`, `/work`, and representative project pages on desktop and mobile. Verify mobile navigation, grayscale/color image interaction, thread direction, founder separation, project image expansion, and inquiry links. Confirm service routes return 404. Do not send a test inquiry into the live CRM without coordinating it.
 
 The HTTP smoke check validates sitemap coverage, independent canonical and social URLs, unique titles/descriptions, structured data, initial HTML content without JavaScript, internal links/assets, crawler access, and unknown-route 404s. It also verifies that the existing inquiry form remains available. It never submits the form.
 
@@ -31,8 +31,8 @@ The HTTP smoke check validates sitemap coverage, independent canonical and socia
 
 - Confirm Vercel deployed the approved commit to the production custom domain. Do not merge the PR solely because a preview builds.
 - Inspect Vercel Deployment Protection, Firewall, bot challenges, and any upstream security rules. Keep necessary protections and permit verified search crawlers where required. A robots file cannot override a firewall block. Verify OpenAI crawler IP ranges against the official documentation; do not trust a user-agent string alone.
-- Check production `/robots.txt`, `/sitemap.xml`, service/project status codes, canonical URLs, and redirects from alternate domain forms. Vercel owns domain redirect settings; use one-hop redirects to `https://storyversenyc.com` where appropriate.
-- Verify the domain in Google Search Console and Bing Webmaster Tools. Submit `https://storyversenyc.com/sitemap.xml` in both. Inspect the homepage and new service URLs, resolve any indexing exclusions, and request indexing of the key changed pages where supported.
+- Check production `/robots.txt`, `/sitemap.xml`, active project and disabled service status codes, canonical URLs, and redirects from alternate domain forms. Vercel owns domain redirect settings; use one-hop redirects to `https://storyversenyc.com` where appropriate.
+- Verify the domain in Google Search Console and Bing Webmaster Tools. Submit `https://storyversenyc.com/sitemap.xml` in both. Inspect the homepage and project URLs, resolve any indexing exclusions, and request indexing of the key changed pages where supported.
 - Existing Vercel Analytics is retained. Review referring domains and landing pages for ChatGPT/search visitors. Add a supported CRM attribution property only after verifying its HubSpot internal name and form configuration; avoid sending unknown fields that could break inquiry submission.
 - Review official company profiles, venue credits, collaborator pages, and genuine press coverage for consistent name, description, and links. This is outside the website PR. Obtain permission for testimonials and conduct outreach only with owner authorization.
 

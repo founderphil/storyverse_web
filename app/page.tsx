@@ -1,5 +1,4 @@
 import { pageMetadata, SITE_DESCRIPTION } from "@/lib/seo";
-import ServiceCards from "@/components/ServiceCards";
 import StudioFooter from "@/components/StudioFooter";
 
 import ThreadParallax from "@/components/ThreadParallax";
@@ -33,7 +32,6 @@ export default function Page() {
           </div>
         </section>
         <Capabilities />
-        <section className="buyer-section" aria-labelledby="services-heading"><p className="buyer-kicker">Ways to work with us</p><h2 id="services-heading">What can we create for you?</h2><p className="buyer-intro">Commission a brand world, bring us into your agency production, or connect a live experience to its digital story.</p><ServiceCards /><a className="buyer-text-link" href="/services">Explore services & planning ↗</a></section>
         <section className="mission-section" aria-labelledby="mission-heading">
           <div className="mission-section-header"><p className="buyer-kicker">Our creative point of view</p><h2 id="mission-heading">enter. engage. become.</h2><p>Deeply felt worlds where human experience guides the journey. Film, performance, and technology share one narrative language—so every touchpoint feels like part of the same story.</p></div>
           <div className="mission-video" data-story-thread="cross"><div className="mission-video-frame"><video controls preload="none" aria-label="Storyverse case film"><source src="/videos/enter_engage_become.mp4" type="video/mp4" /></video></div><div className="mission-video-overlay-top"><span className="mission-video-badge">Storyverse · case film</span><span className="mission-video-meta">3:12 · sound on recommended</span></div></div>

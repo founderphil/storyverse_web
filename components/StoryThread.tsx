@@ -123,7 +123,7 @@ export default function StoryThread() {
         if (landmark.dataset.storyThread === "end") {
           endX = box.left - bounds.left + box.width / 2;
           endY = top - 14;
-          // Keep the existing arrival from the left, then wind twice around the needle eye.
+          // Continue the alternating direction into the final needle-eye tie-off.
           const loopWidth = width <= 760 ? 25 : 32;
           const point = (x: number, y: number) => `${endX + x * loopWidth} ${endY + y}`;
           // Uneven, tilted turns overlap like a loose hand-drawn thread, with a clear needle eye.
@@ -139,9 +139,10 @@ export default function StoryThread() {
           ];
           const tieOff = turns.map(([x1, y1, x2, y2, x, y]) =>
             ` C ${point(x1, y1)} ${point(x2, y2)} ${point(x, y)}`).join("");
-          const path = `M 0 ${endY - 65} C 0 ${endY - 20} ${endX} ${endY - 65} ${endX} ${endY}` +
+          const startX = side === "right" ? width : 0;
+          const path = `M ${startX} ${endY - 65} C ${startX} ${endY - 20} ${endX} ${endY - 65} ${endX} ${endY}` +
             tieOff + ` L ${endX} ${top + 4}`;
-          crossings.push({ key: "inquiry", path, y: endY - 30, direction: "left-to-right" });
+          crossings.push({ key: "inquiry", path, y: endY - 30, direction });
           break;
         }
         const y = top + box.height * .45;
@@ -149,7 +150,7 @@ export default function StoryThread() {
         const path = side === "right"
           ? `M ${width} ${y} C ${width * .83} ${y - 24} ${width * .67} ${y + 24} ${width * .5} ${y} C ${width * .33} ${y - 24} ${width * .17} ${y + 24} 0 ${y + 8}`
           : `M 0 ${y} C ${width * .17} ${y - 24} ${width * .33} ${y + 24} ${width * .5} ${y} C ${width * .67} ${y - 24} ${width * .83} ${y + 24} ${width} ${y + 8}`;
-        crossings.push({ key: project ?? `crossing-${crossings.length}`, path, y, direction });
+        crossings.push({ key: landmark.dataset.threadKey ?? project ?? `crossing-${crossings.length}`, path, y, direction });
         side = side === "right" ? "left" : "right";
       }
       main.classList.add("has-story-thread");

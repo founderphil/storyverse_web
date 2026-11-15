@@ -1067,3 +1067,48 @@ body { min-height: 100%; height: auto; }
   .service-grid, .service-deliverables { grid-template-columns: 1fr; }
   .service-section { padding: 2.5rem 0; }
 }
+
+/* The audience journey uses the deck's original photographs and a clear thread lane. */
+.audience-journey { position: relative; z-index: auto; gap: 1.5rem; margin-top: 3rem; padding: 2rem 0; }
+.journey-card { display: block; min-width: 0; }
+.journey-media { position: relative; z-index: 3; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 16px; background: #eee; }
+.journey-media img { display: block; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: filter .45s ease; }
+.journey-card:hover img, .journey-card:focus-visible img { filter: grayscale(0); }
+.journey-copy { position: relative; padding-top: 3rem; }
+.journey-copy h3, .journey-copy p { position: relative; z-index: 3; background: #fff; }
+.journey-copy h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: .5rem; }
+.journey-copy p { display: block; font-size: .9rem; line-height: 1.65; margin: 0; }
+.journey-thread-anchor { position: absolute; top: 1.5rem; left: 0; width: 1px; height: 0; pointer-events: none; }
+.team-background { margin-top: 1rem; }
+.team-background summary { cursor: pointer; font-size: .85rem; text-decoration: underline; text-underline-offset: 4px; }
+.team-background p { font-size: .9rem; line-height: 1.7; margin-top: 1rem; }
+.team-work-link { display: table; margin: 2.5rem auto 0; }
+.work-section-nav { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 1.75rem; }
+.work-collection { padding: 3rem 0 4rem; border-top: 1px solid #dedde3; }
+.work-collection > h2 { text-align: left; font-size: clamp(2rem, 4vw, 3.3rem); font-weight: 600; line-height: 1.1; letter-spacing: -.035em; }
+.work-section-intro { max-width: 760px; line-height: 1.75; }
+.work-project-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+.project-credit { font-size: .72rem !important; line-height: 1.65; color: #666; margin: 0 0 .65rem !important; }
+.case-cinematic-header .project-credit { color: #c3c6d0; }
+.founders-collection { margin-top: 2rem; }
+.founder-history { padding: 2rem; background: #f4f2f6; border-radius: 20px; margin: 2rem 0 3.5rem; }
+.founder-history h3, .founder-work-group h3, .founder-press h3 { font-size: clamp(1.35rem, 2.5vw, 2rem); font-weight: 600; line-height: 1.3; margin-bottom: 1rem; }
+.founder-history p { max-width: 850px; }
+.founder-work-group { padding: 2rem 0 3rem; }
+.founder-work-group + .founder-work-group { border-top: 1px solid #dedde3; }
+.founder-credit-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 2rem 0; }
+.founder-credit-card { padding: 1.5rem; border: 1px solid #dedde3; border-radius: 16px; }
+.founder-credit-card h4 { font-size: 1.2rem; font-weight: 600; margin-bottom: .75rem; }
+.founder-credit-card p:last-child { margin-bottom: 0; font-size: .95rem; }
+.founder-credit-card a:hover, .founder-press a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.founder-press { padding: 3rem 0 0; border-top: 1px solid #dedde3; }
+.founder-press-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.founder-press-grid a { display: flex; flex-direction: column; gap: 1rem; }
+.press-publication { font-family: Georgia, serif; font-size: 1.3rem; font-weight: bold; }
+@media (max-width: 760px) {
+  .audience-journey { grid-template-columns: 1fr; gap: 2rem; }
+  .journey-media { aspect-ratio: 4 / 3; }
+  .journey-copy { padding-top: 2.5rem; }
+  .work-project-grid, .founder-credit-grid, .founder-press-grid { grid-template-columns: 1fr; }
+  .founder-history { padding: 1.5rem; }
+}

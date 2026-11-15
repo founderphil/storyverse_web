@@ -1,3 +1,4 @@
+import { SERVICES_ENABLED } from "@/lib/site-features";
 import { notFound } from "next/navigation";
 import StudioNav from "@/components/StudioNav";
 import StudioFooter from "@/components/StudioFooter";
@@ -7,13 +8,15 @@ import { projects } from "@/data/projects";
 import { pageMetadata, SITE_URL, ORGANIZATION_ID } from "@/lib/seo";
 
 type Props = { params: { slug: string } };
-export function generateStaticParams() { return services.map(({ slug }) => ({ slug })); }
+export function generateStaticParams() { return SERVICES_ENABLED ? services.map(({ slug }) => ({ slug })) : []; }
 export function generateMetadata({ params }: Props) {
+  if (!SERVICES_ENABLED) notFound();
   const service = services.find(item => item.slug === params.slug);
   if (!service) notFound();
   return pageMetadata(service.title, service.summary, `/services/${service.slug}`);
 }
 export default function ServicePage({ params }: Props) {
+  if (!SERVICES_ENABLED) notFound();
   const service = services.find(item => item.slug === params.slug);
   if (!service) notFound();
   const url = `${SITE_URL}/services/${service.slug}`;

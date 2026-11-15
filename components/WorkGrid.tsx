@@ -1,25 +1,12 @@
-'use client';
-import { useState } from 'react';
-import TagBar from '@/components/TagBar';
-import ProjectCard from '@/components/ProjectCard';
-import { projects as projectsData, allTags } from '@/data/projects';
+import ProjectCard from "@/components/ProjectCard";
+import { projects } from "@/data/projects";
 
-export default function WorkGrid() {
-  const projectsArray = Object.entries(projectsData);
-  const [active, setActive] = useState<string[]>([]);
-  const filtered = active.length
-    ? projectsArray.filter(([_, p]) => active.every(t => p.tags.includes(t)))
-    : projectsArray;
-
+export default function WorkGrid({ origin }: { origin: "storyverse" | "founder" }) {
   return (
-    <div className="py-16 space-y-10">
-
-      <TagBar tags={allTags} active={active} onToggle={(t)=>setActive(prev=>prev.includes(t)?prev.filter(x=>x!==t):[...prev,t])}/>
-      <div className="grid md:grid-cols-3 gap-8">
-        {filtered.map(([slug, project]) => (
-          <ProjectCard key={slug} slug={slug} project={project} />
-        ))}
-      </div>
+    <div className="work-project-grid">
+      {Object.entries(projects).filter(([, project]) => project.origin === origin).map(([slug, project]) => (
+        <ProjectCard key={slug} slug={slug} project={project} />
+      ))}
     </div>
   );
 }
