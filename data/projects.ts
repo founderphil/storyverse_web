@@ -3,6 +3,8 @@
 
 export type Project = {
   title: string;
+  origin: "storyverse" | "founder";
+  credit: string;
   caseStudyCopy?: string[];
   buyerBrief?: string;
   buyerOutcome?: string;
@@ -47,6 +49,8 @@ export const projects: Record<string, Project> = {
   // --- Flagship / main projects ---
 
   aether: {
+    origin: "storyverse",
+    credit: "A Storyverse production",
     caseStudyCopy: [
       'Every guest carried a pass that quietly followed their night. Storyverse designed the technology behind it — no app, no phone, no staff handoff — so the world could answer each person by what they had actually done.',
       'AETHER: Awakening Annabellee is original IP — a 1988 storyworld staged as a walkthrough production, where twelve characters held twelve realms around Belle at the center of Saint Mary’s Infirmary.',
@@ -55,7 +59,7 @@ export const projects: Record<string, Project> = {
     buyerBrief: 'An original 1988 storyworld staged as a walkthrough production, built with technology that let the world recognize every guest inside it.',
     buyerOutcome: 'A personalized night for every guest — their own path, their own film, their own map — built on custom technology and an original story.',
     delivery: 'Original IP & Storyworld Development · Walkthrough Experience Design · Guest Identity & Personalization Tech · Live Show Integration · Post-Show Digital Experience · Campaign & Film',
-    proofLine: 'Original Storyverse IP · Produced off-Broadway in NYC',
+    proofLine: 'Original Storyverse IP · Produced Off-Broadway in NYC · 6 performances · Approximately 700 guests · Sold-out final performance',
     journeySteps: ['Enter', 'Be recognized', 'Shape the story', 'Take your ending with you'],
     systemProof: 'A physical pass let each guest’s choices shape a personalized in-venue ending and a private post-show digital journey.',
     theme: { accent: '#ff3fb0', secondaryAccent: '#e8a85c' },
@@ -100,6 +104,8 @@ export const projects: Record<string, Project> = {
   },
 
   fairyland: {
+    origin: "storyverse",
+    credit: "A Storyverse production",
     caseStudyCopy: [
       'FAIRYLAND is a living storyworld with its own companion app — a personal archive where every guest keeps a profile, gathers visions, and returns to a story that keeps evolving beyond the performance.',
       'Storyverse shaped the experience around continuity: the first invitation, the path into the live event, and the digital encounters that keep the world active afterward.',
@@ -151,6 +157,8 @@ export const projects: Record<string, Project> = {
   },
 
   emily_was_here: {
+    origin: "storyverse",
+    credit: "A Storyverse production",
     caseStudyCopy: [
       'EMILY WAS HERE turns a walk across the Brooklyn Bridge into a private encounter with history, memory, and place. Buy once, go forever — every crossing plays differently.',
       'Guided by the voice of Emily Warren Roebling — the engineer who saw the bridge to completion — original poetry, ambient sound, and a score set the pace of the crossing. There’s no start time and no staff on the bridge: guests choose their own path from the app, and the phone delivers the story, then gets out of the way.',
@@ -200,6 +208,8 @@ export const projects: Record<string, Project> = {
   },
 
   maia: {
+    origin: "founder",
+    credit: "Phil Olarte · NYU independent project",
     title: 'The MAIA Experience',
     subtitle: 'AI Character UX/UI',
     link: 'https://the-maia-experience.framer.ai/',
@@ -230,6 +240,8 @@ export const projects: Record<string, Project> = {
   },
 
   chalknotes: {
+    origin: "founder",
+    credit: "Phil Olarte · Product design & experience strategy",
     title: 'ChalkNotes',
     subtitle: 'XR Storytelling Platform',
     link: 'https://chalknotes.com/',
@@ -260,6 +272,8 @@ export const projects: Record<string, Project> = {
 
   // --- Additional portfolio projects (site) ---
   juliet_wherefore: {
+    origin: "founder",
+    credit: "Phil Olarte · Experience design",
     title: 'Wherefore Art Thou, Juliet?',
     img: '/images/juliet.png',
     digitalImg: '/images/juliet.png',

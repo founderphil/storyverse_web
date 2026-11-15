@@ -39,15 +39,19 @@ function useScrollProgress<T extends HTMLElement>() {
 const teamMembers = [
   {
     name: "Alba Albanese",
-    title: "Chief Creative Designer",
+    title: "Chief Creative Director",
     image: "/images/alba.jpg",
-    bio: "Alba is an actor, writer, and immersive creator whose original work spans Off-Broadway, film, and emerging media. A longtime Sleep No More performer and co-founder of Storyverse, she brings elite classical training and a proven track record of building emotionally resonant, boundary-pushing story worlds.",
+    bio: "Alba is an actor, writer, and immersive creator whose work spans Off-Broadway, film, and emerging media. Her background includes Sleep No More, Serenade, Home of Enchantments, and The Raven. At Storyverse, she leads the story, performance, and creative direction.",
+    background: "Alba created and performed Annabella the Oracle within Sleep No More. Her original work includes Serenade and Home of Enchantments; she also co-created and performed in The Raven, presented at the 57th New York Film Festival in 2019. Earlier credits and coverage may appear under the name Ava Lee Scott.",
+    portfolio: "https://www.albaalbanese.com/productions/",
   },
   {
     name: "Phil Olarte",
     title: "Chief Creative Technologist",
     image: "/images/phil.jpg",
-    bio: "Phil is a tech product designer, 4X tech founder, and creative technologist with an M.S. in AI and Design from NYU. He specializes in AI-native product strategy, systems design, and immersive experience architecture, turning complex emerging technology into polished, human-centered products and narrative experiences.",
+    bio: "Phil is a product designer, technology founder, and creative technologist with an M.S. in AI and Design from NYU. A background in music and theater informs his approach to interactive stories. At Storyverse, he connects audience experience, systems design, and technical production.",
+    background: "Trained in piano and voice, Phil brings a performer’s perspective to product design and emerging technology. His independent work includes the MAIA conversational-character project at NYU and product and experience design for ChalkNotes and location-based storytelling. His work at Storyverse connects those tools to Alba’s narrative and performance practice.",
+    portfolio: "https://www.phillipolarte.com/",
   },
 ];
 
@@ -71,7 +75,7 @@ export default function Team() {
     <section id="team" className="team-section" ref={ref}>
       <div className="team-inner">
         <header className="team-header">
-          <p className="team-kicker">Senior NYC team</p>
+          <p className="team-kicker">Co-founders · NYC</p>
           <h2>The humans behind your world</h2>
           <p className="team-intro">
             Creative direction and technical architecture at the same table.
@@ -130,11 +134,13 @@ export default function Team() {
                   <h3>{member.name}</h3>
                   <p className="team-member-title">{member.title}</p>
                   <p className="team-member-bio">{member.bio}</p>
+                  <details className="team-background"><summary>Background & selected work</summary><p>{member.background}</p><a className="buyer-text-link" href={member.portfolio} target="_blank" rel="noopener noreferrer">Full portfolio ↗</a></details>
                 </div>
               </article>
             ))}
           </div>
         </div>
+        <a className="buyer-text-link team-work-link" href="/work#founders-work">Explore the founders’ work & history ↗</a>
       </div>
     </section>
   );

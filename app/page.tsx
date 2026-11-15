@@ -1,9 +1,14 @@
+import { pageMetadata, SITE_DESCRIPTION } from "@/lib/seo";
+import StudioFooter from "@/components/StudioFooter";
+
 import ThreadParallax from "@/components/ThreadParallax";
 import Team from "@/components/Team";
 import ContactCTA from "@/components/ContactCTA";
 import Capabilities from "@/components/Capabilities";
 import StudioNav from "@/components/StudioNav";
 import StoryThread from "@/components/StoryThread";
+
+export const metadata = pageMetadata("Immersive Experiences & Brand Activations", SITE_DESCRIPTION, "/");
 
 export default function Page() {
   return (
@@ -21,7 +26,7 @@ export default function Page() {
           <div className="buyer-hero-copy">
             <p className="buyer-kicker">NYC studio · Brands & agencies · Available worldwide</p>
             <h1 id="hero-heading">Brand worlds<br />you <em>become.</em></h1>
-            <p className="buyer-positioning">A full-service studio creating cinematic, performance-led brand worlds—and the technology that lets audiences participate before, during, and after the live experience.</p>
+            <p className="buyer-positioning">Storyverse is a New York immersive experience studio creating custom brand activations and interactive events through storytelling, live performance, film, and participatory technology. We work with brands and agencies worldwide, connecting the audience journey before, during, and after the live experience.</p>
             <div className="buyer-actions"><a className="studio-button studio-button-dark" href="#contact">Start a project ↗</a><a className="studio-button" href="#work">Explore our work ↓</a></div>
             <p className="buyer-hero-note">Creative direction. Film & live performance. Participatory technology.</p>
           </div>
@@ -37,7 +42,7 @@ export default function Page() {
         <section className="buyer-section production-section" aria-labelledby="production-heading"><p className="buyer-kicker">A production built around your brief</p><h2 id="production-heading">Senior creative leadership.<br />Room to scale.</h2><p className="buyer-intro">Work directly with our NYC creative and technology leads. We shape the scope around your audience, venue, timeline, and budget—from a focused digital companion to a production spanning film, live performance, and interactive systems.</p><div className="production-grid"><article><h3>Define the world</h3><p>Align on the audience, objective, concept, and what success should look like.</p></article><article><h3>Build the experience</h3><p>Connect scripts, performance, production design, and technical engineering in one plan.</p></article><article><h3>Plan the rollout</h3><p>Define the staffing, delivery, and audience journey needed for your event or campaign.</p></article></div><a className="buyer-text-link" href="#contact">Tell us what you’re planning ↗</a></section>
         <ContactCTA />
       </main>
-      <footer>© {new Date().getFullYear()} StoryverseNYC Inc. — All rights reserved<br /><a href="mailto:contact@storyversenyc.com">contact@storyversenyc.com</a></footer>
+      <StudioFooter />
     </>
   );
 }

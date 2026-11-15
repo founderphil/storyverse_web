@@ -19,6 +19,7 @@ export default function ProjectCard({ slug, project }: ProjectCardProps) {
         />
       </div>
       <div className="p-4 space-y-1">
+        <p className="project-credit">{project.credit}</p>
         <h3 className="text-lg font-medium">{project.title}</h3>
         <p className="text-neutral-600 text-sm">{project.buyerOutcome ?? project.overview}</p>
         <div className="flex gap-2 pt-2 flex-wrap">

@@ -6,6 +6,7 @@ type Crossing = {
   key: string;
   path: string;
   y: number;
+  endY?: number;
   direction: "right-to-left" | "left-to-right";
 };
 type ThreadDrawing = {
@@ -41,6 +42,10 @@ export default function StoryThread() {
     let leftEdge = 0.625;
     let rightEdge = 0.66;
     let crossings: Crossing[] = [];
+    let journeyMedia: HTMLElement[] = [];
+    let journeyGeometry = "";
+    let sampledJourneyGeometry = "";
+    let journeyRanges: { media: HTMLElement; start: number; end: number }[] = [];
     let measurementFrame = 0;
     let scrollFrame = 0;
     let videoFrame = 0;
@@ -73,12 +78,47 @@ export default function StoryThread() {
     function reveal() {
       if (disposed) return;
       const mainTop = main.getBoundingClientRect().top;
-      setScrollProgress(crossings.map(crossing => {
+      const progress = crossings.map(crossing => {
         if (reducedMotion.matches) return 1;
-        // Each visible crossing draws while it travels from the lower screen to the upper third.
-        // The offscreen connections never consume its scroll animation distance.
-        return ease(clamp((window.innerHeight * .85 - (mainTop + crossing.y)) / (window.innerHeight * .55)));
-      }));
+        // A stacked journey draws over the full span from its first photo to its last.
+        const distance = window.innerHeight * .55 + (crossing.endY ?? crossing.y) - crossing.y;
+        return ease(clamp((window.innerHeight * .85 - (mainTop + crossing.y)) / distance));
+      });
+      setScrollProgress(progress);
+
+      const journeyIndex = crossings.findIndex(crossing => crossing.key === "audience-journey");
+      if (journeyIndex < 0) return;
+      const path = main.querySelector<SVGPathElement>('[data-thread-target="audience-journey"]');
+      if (!path || path.getAttribute("d") !== crossings[journeyIndex].path) {
+        // Geometry must come from the SVG React has just committed after a resize.
+        cancelAnimationFrame(scrollFrame);
+        scrollFrame = requestAnimationFrame(reveal);
+        return;
+      }
+      if (sampledJourneyGeometry !== journeyGeometry) {
+        const mainBounds = main.getBoundingClientRect();
+        const mediaBounds = journeyMedia.map(media => ({ media, bounds: media.getBoundingClientRect() }));
+        const length = path.getTotalLength();
+        journeyRanges = mediaBounds.map(({ media }) => ({ media, start: 1, end: 0 }));
+        // Sample actual arc length so color stays aligned with the visible stroke,
+        // including the serpentine path through vertically stacked mobile photos.
+        for (let step = 0; step <= 400; step++) {
+          const fraction = step / 400;
+          const point = path.getPointAtLength(length * fraction);
+          mediaBounds.forEach(({ bounds }, index) => {
+            if (point.x >= bounds.left - mainBounds.left && point.x <= bounds.right - mainBounds.left &&
+                point.y >= bounds.top - mainBounds.top && point.y <= bounds.bottom - mainBounds.top) {
+              journeyRanges[index].start = Math.min(journeyRanges[index].start, fraction);
+              journeyRanges[index].end = Math.max(journeyRanges[index].end, fraction);
+            }
+          });
+        }
+        sampledJourneyGeometry = journeyGeometry;
+      }
+      journeyRanges.forEach(({ media, start, end }) => {
+        const color = reducedMotion.matches ? 1 : end > start ? clamp((progress[journeyIndex] - start) / (end - start)) : 0;
+        media.style.setProperty("--journey-color", String(color));
+      });
     }
 
     function startIntro() {
@@ -123,7 +163,7 @@ export default function StoryThread() {
         if (landmark.dataset.storyThread === "end") {
           endX = box.left - bounds.left + box.width / 2;
           endY = top - 14;
-          // Keep the existing arrival from the left, then wind twice around the needle eye.
+          // Continue the alternating direction into the final needle-eye tie-off.
           const loopWidth = width <= 760 ? 25 : 32;
           const point = (x: number, y: number) => `${endX + x * loopWidth} ${endY + y}`;
           // Uneven, tilted turns overlap like a loose hand-drawn thread, with a clear needle eye.
@@ -139,17 +179,39 @@ export default function StoryThread() {
           ];
           const tieOff = turns.map(([x1, y1, x2, y2, x, y]) =>
             ` C ${point(x1, y1)} ${point(x2, y2)} ${point(x, y)}`).join("");
-          const path = `M 0 ${endY - 65} C 0 ${endY - 20} ${endX} ${endY - 65} ${endX} ${endY}` +
+          const startX = side === "right" ? width : 0;
+          const path = `M ${startX} ${endY - 65} C ${startX} ${endY - 20} ${endX} ${endY - 65} ${endX} ${endY}` +
             tieOff + ` L ${endX} ${top + 4}`;
-          crossings.push({ key: "inquiry", path, y: endY - 30, direction: "left-to-right" });
+          crossings.push({ key: "inquiry", path, y: endY - 30, direction });
           break;
         }
         const y = top + box.height * .45;
+        if (landmark.dataset.threadKey === "audience-journey") {
+          journeyMedia = Array.from(main.querySelectorAll<HTMLElement>(".journey-media"));
+          const mediaBounds = journeyMedia.map(media => media.getBoundingClientRect());
+          const stacked = mediaBounds.length > 1 && Math.abs(mediaBounds[0].top - mediaBounds[1].top) > 1;
+          const centers = stacked ? mediaBounds.map(rect => rect.top - bounds.top + rect.height / 2) : [y];
+          let journeySide = side;
+          let path = "";
+          centers.forEach((center, index) => {
+            const startX = journeySide === "right" ? width : 0;
+            if (index === 0) path = `M ${startX} ${center}`;
+            else path += ` C ${startX} ${centers[index - 1] + 48} ${startX} ${center - 48} ${startX} ${center}`;
+            path += journeySide === "right"
+              ? ` C ${width * .83} ${center - 24} ${width * .67} ${center + 24} ${width * .5} ${center} C ${width * .33} ${center - 24} ${width * .17} ${center + 24} 0 ${center + 8}`
+              : ` C ${width * .17} ${center - 24} ${width * .33} ${center + 24} ${width * .5} ${center} C ${width * .67} ${center - 24} ${width * .83} ${center + 24} ${width} ${center + 8}`;
+            journeySide = journeySide === "right" ? "left" : "right";
+          });
+          journeyGeometry = path + mediaBounds.map(rect => `${rect.left - bounds.left},${rect.top - bounds.top},${rect.width},${rect.height}`).join(";");
+          crossings.push({ key: "audience-journey", path, y: centers[0], endY: centers[centers.length - 1], direction });
+          side = journeySide;
+          continue;
+        }
         const project = landmark.closest<HTMLElement>("[data-story-project]")?.dataset.storyProject;
         const path = side === "right"
           ? `M ${width} ${y} C ${width * .83} ${y - 24} ${width * .67} ${y + 24} ${width * .5} ${y} C ${width * .33} ${y - 24} ${width * .17} ${y + 24} 0 ${y + 8}`
           : `M 0 ${y} C ${width * .17} ${y - 24} ${width * .33} ${y + 24} ${width * .5} ${y} C ${width * .67} ${y - 24} ${width * .83} ${y + 24} ${width} ${y + 8}`;
-        crossings.push({ key: project ?? `crossing-${crossings.length}`, path, y, direction });
+        crossings.push({ key: landmark.dataset.threadKey ?? project ?? `crossing-${crossings.length}`, path, y, direction });
         side = side === "right" ? "left" : "right";
       }
       main.classList.add("has-story-thread");
@@ -224,6 +286,7 @@ export default function StoryThread() {
       cancelAnimationFrame(introFrame);
       if (videoFrame && typeof video.cancelVideoFrameCallback === "function") video.cancelVideoFrameCallback(videoFrame);
       main.classList.remove("has-story-thread");
+      journeyMedia.forEach(media => media.style.removeProperty("--journey-color"));
     };
   }, []);
 
